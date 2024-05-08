@@ -1,0 +1,18 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Heading styles */
+h1 {
+    color: #333; /* Dark gray color */
+    text-align: center;
+}
+
+/* Canvas styles */
+canvas {
+    display: block;
+    margin: 20px auto; /* Center canvas elements horizontally with some margin */
+    max-width: 100%; /* Ensure canvas elements don't exceed the width of their container */
+}
