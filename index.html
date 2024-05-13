@@ -1,16 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Charts</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="style.css"> 
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <div class="header"> 
+
+
+        <div class="header-img">
+        <img src="" alt="one world">
+    </div>
+    </div>
+
+
+
+
     <div class="pieChartContainer">
+      <h1>Kväveoxid utsläpp för olika transportslag</h1>
+      <canvas id="pieChart" width="1000" height="1000"></canvas>
+    </div>
+    <div class="wrapper">
+      <div class="buttonWrapper">
+        <button class="tab-button active" data-id="btninflyg">
+          Inrikes flyg
+        </button>
+        <button class="tab-button" data-id="btnutflyg">Utrikes flyg</button>
+        <button class="tab-button" data-id="btnjarn">Järnväg</button>
+        <button class="tab-button" data-id="btnbat">
+          Privata fritidsbåtar
+        </button>
+        <button class="tab-button" data-id="btnkom">Kommersiella fartyg</button>
+        <button class="tab-button" data-id="btnbil">Personbilar</button>
+        <button class="tab-button" data-id="btnA">A-traktorer</button>
+        <button class="tab-button" data-id="btnbuss">Bussar</button>
+        <button class="tab-button" data-id="btnll">Lätta lastbilar</button>
+        <button class="tab-button" data-id="btnmc">Moped & MC</button>
+        <button class="tab-button" data-id="btntl">Tunga lastbilar</button>
+      </div>
+      <div class="contentWrapper">
+        <div class="content active" id="btninflyg">
+         
+          <canvas id="inflygChart" width="1000" height="1000"></canvas>
+        </div>
+        <div class="content active" id="btnutflyg">
+          
+          <canvas id="utflygChart" width="1000" height="1000"></canvas>
+        </div>
+        <div class="content active" id="btnjarn">
+            
+          <canvas id="jarnvagChart" width="800" height="800"></canvas>
+        </div>
+        <div class="content active" id="btnbat">
+            
+          <canvas id="privbatChart" width="800" height="800"></canvas>
+        </div>
+        <div class="content active" id="btnkom">
+           
+          <canvas id="fartygChart" width="800" height="800"></canvas>
+        </div>
+        <div class="content active" id="btnbil">
+            
+          <canvas id="bilChart" width="800" height="800"></canvas>
+        </div>
+        <div class="content active" id="btnA">
+          <canvas id="achart" width="800" height="800"></canvas>
+        </div>
+        <div class="content active" id="btnbuss">
+          <canvas id="busschart" width="800" height="800"></canvas>
+        </div>
+        <div class="content active" id="btnll">
+          <canvas id="llastchart" width="800" height="800"></canvas>
+        </div>
+        <div class="content active" id="btnmc">
+          <canvas id="mopedchart" width="800" height="800"></canvas>
+        </div>
+        <div class="content active" id="btntl">
+          <canvas id="tlastchart" width="800" height="800"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="pieChartContainer">
         <h1>Kväveoxid utsläpp för olika transportslag</h1>
-        <canvas id="pieChart" width="800" height="800"></canvas>
+        <canvas id="pieChart" width="1000" height="1000"></canvas>
       </div>
   
       <div class="navbar">
@@ -29,40 +106,40 @@
   
       <div class="Container">
         <div id="inflygChartContainer">
-          <canvas id="inflygChart" width="800" height="800"></canvas>
+          <canvas id="inflygChart" width="1000" height="1000"></canvas>
         </div>
         <div id="utflygChartContainer">
-          <canvas id="utflygChart" width="800" height="800"></canvas>
+          <canvas id="utflygChart" width="1000" height="1000"></canvas>
         </div>
         <div id="jarnvagChartContainer">
-          <canvas id="jarnvagChart" width="800" height="800"></canvas>
+          <canvas id="jarnvagChart" width="1000" height="1000"></canvas>
         </div>
         <div id="privbatChartContainer">
-          <canvas id="privbatChart" width="800" height="800"></canvas>
+          <canvas id="privbatChart" width="1000" height="1000"></canvas>
         </div>
         <div id="fartygChartContainer">
-          <canvas id="fartygChart" width="800" height="800"></canvas>
+          <canvas id="fartygChart" width="1000" height="1000"></canvas>
         </div>
         <div id="bilChartContainer">
-          <canvas id="bilChart" width="800" height="800"></canvas>
+          <canvas id="bilChart" width="1000" height="1000"></canvas>
         </div>
         <div id="achartContainer">
-          <canvas id="achart" width="800" height="800"></canvas>
+          <canvas id="achart" width="1000" height="1000"></canvas>
         </div>
         <div id="busschartContainer">
-          <canvas id="busschart" width="800" height="800"></canvas>
+          <canvas id="busschart" width="1000" height="1000"></canvas>
         </div>
         <div id="llastchartContainer">
-          <canvas id="llastchart" width="800" height="800"></canvas>
+          <canvas id="llastchart" width="1000" height="1000"></canvas>
         </div>
         <div id="mopedchartContainer">
-          <canvas id="mopedchart" width="800" height="800"></canvas>
+          <canvas id="mopedchart" width="1000" height="1000"></canvas>
         </div>
         <div id="tlastchartContainer">
-          <canvas id="tlastchart" width="800" height="800"></canvas>
+          <canvas id="tlastchart" width="1000" height="1000"></canvas>
         </div>
       </div>
-  
-      <script src="script.js"></script>
-</body>
+   -->
+    <script src="script.js"></script>
+  </body>
 </html>

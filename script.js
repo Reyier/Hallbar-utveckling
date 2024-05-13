@@ -249,10 +249,19 @@ window.onload = function () {
         plugins: {
           legend: {
             position: "top",
+            labels: {
+              font: {
+                  size: 20
+              }
+          }
+          
           },
           title: {
             display: true,
             text: "Kväveoxid transportslag i olika sektorer sedan 2000",
+            font: {
+              size: 24
+          }
           },
         },
       },
@@ -261,6 +270,8 @@ window.onload = function () {
 
   function printLineCharts(utslappData) {
     // Extract relevant information for chart
+
+    
     const years = [
       "2000",
       "2001",
@@ -398,15 +409,19 @@ window.onload = function () {
           plugins: {
             legend: {
               display: true,
-              position: "top",
+              position: "none",
             },
             title: {
               display: true,
               text: config.title,
+              font: {
+                size: 24
+            }
             },
           },
           scales: {
             x: {
+              max:2023,
               type: "linear",
               display: true,
               scaleLabel: {
@@ -415,7 +430,8 @@ window.onload = function () {
               },
             },
             y: {
-              beginAtZero: true,
+              min: 0,      // Set the minimum value for the y-axis
+              max: 40000,    // Set the maximum value for the y-axis
               display: true,
               scaleLabel: {
                 display: true,
@@ -444,3 +460,39 @@ window.onload = function () {
       console.error("Error fetching data:", error);
     });
 };
+
+
+
+// TEST FÖR TABS 
+
+const tabButtons = document.querySelectorAll(".tab-button");
+const contents = document.querySelectorAll(".content");
+
+
+
+// Function to deactivate all tabs
+function deactivateAllTabs() {
+  tabButtons.forEach(button => {
+    button.classList.remove("active");
+  });
+  contents.forEach(content => {
+    content.classList.remove("active");
+  });
+}
+
+// Event listener for tab buttons
+tabButtons.forEach(button => {
+  button.addEventListener("click", function() {
+    const id = button.dataset.id;
+    deactivateAllTabs();
+    button.classList.add("active");
+    const content = document.getElementById(id);
+    content.classList.add("active");
+
+    // Check if the content has a canvas element for the chart
+    const canvas = content.querySelector("canvas");
+    if (canvas) {
+      initializeChart(canvas.id);
+    }
+  });
+});
