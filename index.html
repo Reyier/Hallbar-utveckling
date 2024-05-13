@@ -8,26 +8,61 @@
     <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
-    <h1>Kväveoxid utsläpp för olika transportslag</h1>
-    
- <canvas id="pieChart" width="800" height="800" ></canvas>
- <canvas id="inflygChart" width="800" height="800" ></canvas>
- <canvas id="utflygChart" width="800" height="800" ></canvas>
- <canvas id="jarnvagChart" width="800" height="800" ></canvas>
- <canvas id="privbatChart" width="800" height="800" ></canvas>
- <canvas id="fartygChart" width="800" height="800" ></canvas>
- <canvas id="bilChart" width="800" height="800" ></canvas>
- <canvas id="achart" width="800" height="800" ></canvas>
- <canvas id="busschart" width="800" height="800" ></canvas>
- <canvas id="llastchart" width="800" height="800" ></canvas>
- <canvas id="mopedchart" width="800" height="800" ></canvas>
- <canvas id="tlastchart" width="800" height="800" ></canvas>
-
- <!-- <canvas id="pieChart" width="400" height="400"></canvas> -->
-   
-
-   
-    <!-- <script src="script.js"></script> -->
-    <script src="script-test.js"></script>
+    <div class="pieChartContainer">
+        <h1>Kväveoxid utsläpp för olika transportslag</h1>
+        <canvas id="pieChart" width="800" height="800"></canvas>
+      </div>
+  
+      <div class="navbar">
+          <a href="#inflygChartContainer">Inrikes Flyg</a>
+          <a href="#utflygChartContainer">Utrikes flyg</a>
+          <a href="#jarnvagChartContainer">Järnväg</a>
+          <a href="#privbatChartContainer">Privatbåtar</a>
+          <a href="#fartygChartContainer">Fartyg</a>
+          <a href="#bilChartContainer">Bil</a>
+          <a href="#achartContainer">A-Traktorer</a>
+          <a href="#busschartContainer">Buss</a>
+          <a href="#llastchartContainer">Långtradare</a>
+          <a href="#mopedchartContainer">Mopeder</a>
+          <a href="#tlastchartContainer">Tåg</a>
+        </div>
+  
+      <div class="Container">
+        <div id="inflygChartContainer">
+          <canvas id="inflygChart" width="800" height="800"></canvas>
+        </div>
+        <div id="utflygChartContainer">
+          <canvas id="utflygChart" width="800" height="800"></canvas>
+        </div>
+        <div id="jarnvagChartContainer">
+          <canvas id="jarnvagChart" width="800" height="800"></canvas>
+        </div>
+        <div id="privbatChartContainer">
+          <canvas id="privbatChart" width="800" height="800"></canvas>
+        </div>
+        <div id="fartygChartContainer">
+          <canvas id="fartygChart" width="800" height="800"></canvas>
+        </div>
+        <div id="bilChartContainer">
+          <canvas id="bilChart" width="800" height="800"></canvas>
+        </div>
+        <div id="achartContainer">
+          <canvas id="achart" width="800" height="800"></canvas>
+        </div>
+        <div id="busschartContainer">
+          <canvas id="busschart" width="800" height="800"></canvas>
+        </div>
+        <div id="llastchartContainer">
+          <canvas id="llastchart" width="800" height="800"></canvas>
+        </div>
+        <div id="mopedchartContainer">
+          <canvas id="mopedchart" width="800" height="800"></canvas>
+        </div>
+        <div id="tlastchartContainer">
+          <canvas id="tlastchart" width="800" height="800"></canvas>
+        </div>
+      </div>
+  
+      <script src="script.js"></script>
 </body>
 </html>

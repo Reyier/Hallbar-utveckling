@@ -2,17 +2,48 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #b3b4bd;
 }
 
-/* Heading styles */
+
 h1 {
-    color: #333; /* Dark gray color */
+    color: #333; 
     text-align: center;
 }
 
-/* Canvas styles */
+
 canvas {
     display: block;
-    margin: 20px auto; /* Center canvas elements horizontally with some margin */
-    max-width: 100%; /* Ensure canvas elements don't exceed the width of their container */
+    margin: 3rem auto; 
+    padding: 1rem;
+    max-width: 100%; 
+    background: rgba(99, 85, 85, 0.2);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5px);
+-webkit-backdrop-filter: blur(5px);
+border: 1px solid rgba(99, 85, 85, 0.3);
+
 }
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  .navbar a {
+   
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    
+  }
+  
+  .navbar a:hover {
+    background-color: #ddd;
+    color: black;
+  }
