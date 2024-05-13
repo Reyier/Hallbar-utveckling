@@ -112,16 +112,14 @@ window.onload = function () {
   };
 
   function printUtslappChart(utslappData) {
-    // Extracting data from the response
     const data = utslappData.map((item) => ({
       pollutant: item.key[0],
       transportMode: item.key[1],
       fuelType: item.key[2],
       year: item.key[3],
-      emission: parseFloat(item.values[0]), // Convert emission value to float
+      emission: parseFloat(item.values[0]),
     }));
 
-    // Filtering data for the year 2022 and pollutant NOx
     const filteredData = data.filter(
       (item) => item.pollutant === "NOx" && item.year === "2000",
       "2001",
@@ -148,7 +146,6 @@ window.onload = function () {
       "2022"
     );
 
-    // Grouping transport modes and summing corresponding emissions
     const transportModes = {};
     filteredData.forEach((item) => {
       if (item.transportMode.startsWith("8.1") && item.emission > 0) {
@@ -228,7 +225,6 @@ window.onload = function () {
     ];
     console.log(transportModes);
     console.log(filteredData);
-    // Creating the pie chart
 
     new Chart(document.getElementById("pieChart"), {
       type: "pie",
@@ -245,23 +241,33 @@ window.onload = function () {
         ],
       },
       options: {
+        aspectRatio: 1,
         responsive: true,
         plugins: {
           legend: {
             position: "top",
             labels: {
               font: {
-                  size: 20
-              }
-          }
-          
+                size: 20,
+              },
+            },
           },
           title: {
             display: true,
             text: "Kväveoxid transportslag i olika sektorer sedan 2000",
             font: {
-              size: 24
-          }
+              size: 24,
+            },
+          },
+          tooltip: {
+            bodySpacing: 10,
+            padding: 15,
+            bodyFont: {
+              size: 16,
+            },
+            titleFont: {
+              size: 18,
+            },
           },
         },
       },
@@ -269,9 +275,6 @@ window.onload = function () {
   }
 
   function printLineCharts(utslappData) {
-    // Extract relevant information for chart
-
-    
     const years = [
       "2000",
       "2001",
@@ -298,7 +301,6 @@ window.onload = function () {
       "2022",
     ];
 
-    // Define configurations for both charts
     const chartConfigurations = [
       {
         title: "Utsläpp av inrikes flyg (8.1.2)",
@@ -379,17 +381,13 @@ window.onload = function () {
       },
     ];
 
-    // Loop through chart configurations and create charts
     chartConfigurations.forEach((config) => {
-      // Filter data for the specific transport mode
       const filteredData = utslappData.filter(
         (item) => item.key[1] === config.filter
       );
 
-      // Extract emissions for the filtered data
       const emissions = filteredData.map((item) => parseFloat(item.values[0]));
 
-      // Create the line chart
       new Chart(document.getElementById(config.elementId), {
         type: "line",
         data: {
@@ -415,13 +413,24 @@ window.onload = function () {
               display: true,
               text: config.title,
               font: {
-                size: 24
-            }
+                size: 24,
+              },
+            },
+
+            tooltip: {
+              bodySpacing: 10,
+              padding: 15,
+              bodyFont: {
+                size: 16,
+              },
+              titleFont: {
+                size: 18,
+              },
             },
           },
           scales: {
             x: {
-              max:2023,
+              max: 2023,
               type: "linear",
               display: true,
               scaleLabel: {
@@ -430,8 +439,8 @@ window.onload = function () {
               },
             },
             y: {
-              min: 0,      // Set the minimum value for the y-axis
-              max: 40000,    // Set the maximum value for the y-axis
+              min: 0,
+              max: 40000,
               display: true,
               scaleLabel: {
                 display: true,
@@ -449,7 +458,6 @@ window.onload = function () {
     body: JSON.stringify(queryUtslapp),
   });
 
-  // Fetching data from the API
   fetch(requestUtslapp)
     .then((response) => response.json())
     .then((dataUtslapp) => {
@@ -461,35 +469,28 @@ window.onload = function () {
     });
 };
 
-
-
-// TEST FÖR TABS 
+// TEST FÖR TABS
 
 const tabButtons = document.querySelectorAll(".tab-button");
 const contents = document.querySelectorAll(".content");
 
-
-
-// Function to deactivate all tabs
 function deactivateAllTabs() {
-  tabButtons.forEach(button => {
+  tabButtons.forEach((button) => {
     button.classList.remove("active");
   });
-  contents.forEach(content => {
+  contents.forEach((content) => {
     content.classList.remove("active");
   });
 }
 
-// Event listener for tab buttons
-tabButtons.forEach(button => {
-  button.addEventListener("click", function() {
+tabButtons.forEach((button) => {
+  button.addEventListener("click", function () {
     const id = button.dataset.id;
     deactivateAllTabs();
     button.classList.add("active");
     const content = document.getElementById(id);
     content.classList.add("active");
 
-    // Check if the content has a canvas element for the chart
     const canvas = content.querySelector("canvas");
     if (canvas) {
       initializeChart(canvas.id);
