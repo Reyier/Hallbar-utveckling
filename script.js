@@ -245,18 +245,23 @@ window.onload = function () {
         responsive: true,
         plugins: {
           legend: {
-            position: "top",
+            position: "left",
             labels: {
               font: {
-                size: 20,
+                size: 16,
+                
               },
             },
           },
           title: {
             display: true,
+            padding: 0,
+            margin: 0,
             text: "Kväveoxid transportslag i olika sektorer sedan 2000",
             font: {
               size: 24,
+            weight: "bold",
+
             },
           },
           tooltip: {
@@ -497,3 +502,26 @@ tabButtons.forEach((button) => {
     }
   });
 });
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const buttons = document.querySelectorAll(".tab-button");
+  const buttonWrapper = document.querySelector(".buttonWrapper");
+
+  buttons.forEach(function(button) {
+      button.addEventListener("click", function() {
+          const targetButton = button.getAttribute("data-id");
+          const targetElement = document.getElementById(targetButton);
+          if (targetElement) {
+              const scrollLeft = targetElement.offsetLeft - buttonWrapper.offsetLeft;
+              buttonWrapper.scrollTo({
+                  left: scrollLeft,
+                  behavior: "smooth"
+              });
+          }
+      });
+  });
+});
+
+

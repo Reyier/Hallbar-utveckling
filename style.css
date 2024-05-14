@@ -1,85 +1,126 @@
-body {
-    font-family: Arial, sans-serif;
+*{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
     margin: 0;
     padding: 0;
     
 }
 
-
-.header-img{
-    background-color: #40531B;
-    height: 100vh;
+.hero {
+  width: 100%;
+  height: 100vh;
+  position: relative;
 }
 
-img {
-    width: 100%;
-    height: 100vh; 
-    object-fit: cover; 
+.hero-img {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; 
+}
+
+.hero-img img {
+  width: 100%;
+  height: 120%;
+  object-fit: cover; 
+}
+
+.hero-text {
+  position: absolute;
+ 
+  text-align: center;
+  color: white;
+  width: 100%;
+  padding: 0.5rem;
+  
+}
+
+.hero-text h1 {
+  font-size: 2rem; 
+  margin-top: 0.2
+  rem;
+
+
+}
+
+.pieChartContainer {
+  position: absolute;
+  top: 75%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
 }
 
 
-h1 {
-    color: #333; 
-    text-align: center;
-}
-
-.pieChartContainer{
-    margin-top: 3rem;
-   
-}
 
 
- canvas {
+  .pieChart {
 
     display: block;
     margin: 3rem auto; 
-    padding: 1rem;
+    padding: rem;
     max-width: 100%; 
-    background: rgba(99, 85, 85, 0.2);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(5px);
--webkit-backdrop-filter: blur(5px);
-border: 1px solid rgba(99, 85, 85, 0.3);
+ 
 
-} 
+}  
 
+.canvasStyle {
+  display: block;
+  margin: 3rem auto;
+  padding: 1rem;
+  max-width: 100%;
+  border: 1px solid #ddd; /* Add a border */
+  border-radius: 10px; /* Add border radius */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  background-color: #fff; /* Add a white background */
+  transition: transform 0.2s, box-shadow 0.2s; /* Add transition effects */
+}
+
+.canvasStyle:hover {
+  transform: translateY(-2px); /* Lift the canvas on hover */
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Enhance box shadow on hover */
+}
+
+.wrapper-text{
+  text-align: center;
+  margin-bottom: 3rem;
+}
 
 .wrapper{
    margin-top: 10rem ;
    justify-content: space-between;
 }
-
 .buttonWrapper {
-    display: flex;
+  display: flex;
+  margin-bottom: 1rem;
   justify-content: center;
-    gap: 0.3rem;
-    margin: auto;
-    
-  }
-  
-  .tab-button {
-    padding: 15px 30px;
-    border: none;
-    background: linear-gradient(to right, #4facfe, #00f2fe); 
-    color: #fff;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 50px; /* Rounded corners */
-    transition: transform 0.2s, box-shadow 0.2s;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1); /* Box shadow */
-  }
-  
-  .tab-button:hover {
-    transform: translateY(-2px); /* Lift the button on hover */
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Enhance box shadow on hover */
-  }
-  
-  .tab-button.active {
-    background: linear-gradient(to right, #00c6ff, #0072ff); /* Gradient background for active button */
-  }
-  
+}
+
+.tab-button {
+  background: none;
+  border: none;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  border-bottom: solid 3px #81c784;
+  transition: background-color 0.3s;
+}
+
+.tab-button:not(.active):hover {
+  background-color: #eeeeee;
+}
+
+.tab-button.active {
+  border-bottom-color: #eeeeee;
+  background-color: #81c784;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+  animation: tabAppear 0.6s;
+}
   
   .active {
     background-color: white;
@@ -98,3 +139,13 @@ border: 1px solid rgba(99, 85, 85, 0.3);
   .content.active {
     display: block;
   }
+
+
+
+
+
+
+
+
+
+  
