@@ -1,20 +1,31 @@
 *{
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-family:Verdana, Geneva, Tahoma, Rubik, sans-serif;
     margin: 0;
     padding: 0;
     
+    
 }
 
-.hero {
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+.ralewayuniquifier {
+  font-family: "Raleway", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+}
+
+/* .hero {
   width: 100%;
   height: 100vh;
   position: relative;
 }
 
 .hero-img {
-  width: 100%;
-  height: 100%;
-  overflow: hidden; 
+  width: 80%;
+  height: 80%;
+  
 }
 
 .hero-img img {
@@ -29,155 +40,105 @@
   text-align: center;
   color: white;
   width: 100%;
-  padding: 0.5rem;
+  padding: 1rem;
   
 }
 
 .hero-text h1 {
   font-size: 2rem; 
-  margin-top: 0.2rem;
+  margin-top: 0.5rem;
 
 
 }
+ */
 
-#smoke {
-  position: absolute;
-  top: 35vw;
-  left: 84.5vw;
-  height: 3vw;
-  width: 1vw;
-  border-radius: 100%;
-  background-color: #848884;
-  
-  filter: blur(10px);
-}
 
-.s {
-  position: absolute;
-  top: 0vw;
-  left: 0vw;
-  width: 2vw;
-  height: 2vw;
-  border-radius: 100%;
-  background-color: #848884;
-  filter: blur(15px);
-  z-index: 99;
-  animation: smokex 1s 1s infinite;
-}
 
-.s:nth-child(1) {
-  animation: smokex 1s 1.5s infinite;
-}
-.s:nth-child(2) {
-  animation: smokex 1s 2s infinite;
-}
-.s:nth-child(3) {
-  animation: smokex 1s 2.5s infinite;
-}
 
-#smoke2 {
-  position: absolute;
-  top: 35vw;
-  left: 89.5vw;
-  height: 3vw;
-  width: 1vw;
-  border-radius: 100%;
-  background-color: #848884;
-  filter: blur(10px);
-}
-
-.s2 {
-  position: absolute;
-  top: 0vw;
-  left: 0vw;
-  width: 2vw;
-  height: 2vw;
-  border-radius: 100%;
-  background-color: #848884;
-  filter: blur(15px);
-  z-index: 99;
-  animation: smokex 1s 1s infinite;
-}
-
-.s2:nth-child(1) {
-  animation: smokex 1s 1.5s infinite;
-}
-.s2:nth-child(2) {
-  animation: smokex 1s 2s infinite;
-}
-.s2:nth-child(3) {
-  animation: smokex 1s 2.5s infinite;
-}
-
-@keyframes smokex {
-  10% {
-    left: -1vw;
-  }
-  30% {
-    left: 1vw;
-  }
-  50% {
-    left: -1vw;
-  }
-  70% {
-    left: 1vw;
-  }
-  100% {
-    top: -10vw;
-    height: 8vw;
-    width: 8vw;
-    opacity: 0;
-    filter: blur(15px);
-  }
+.hero{
+  height: 100vh;
+  background-color:#E0FBE2;
 }
 
 
+ .pieChartContainer {
+  width: 40rem;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center; 
+  margin-left: 20%; 
+  padding-top: 13%;
 
-
-
-
-
-
-
-
-
-
-
-
-
-.pieChartContainer {
-  position: absolute;
-  top: 75%;
-  left: 30%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: white;
-}
-
-
-
-
-  .pieChart {
-
-    display: block;
-    margin: 3rem auto; 
-    padding: rem;
-    max-width: 100%; 
  
+}
 
-}  
+
+
+
+.hero-text {
+  flex: 1; 
+  width: 40rem;
+  margin-left: 5rem;
+  padding: 2rem;
+  background-color: #E0FBE2;
+  border-radius: 10px;
+}
+
+.hero-text h1{
+  width: 80rem;
+  
+  font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 5rem;
+    color: #333; /* Dark text color */
+    line-height: 1;
+  }
+
+  .hero-text p {
+    font-family: "Raleway", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 5rem;
+    color: #666; /* Slightly darker text color */
+  }
+
+
+  .read-more-button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.read-more-button:hover {
+  background-color: #45a049; /* Darker green */
+}
+
+
+
+
 
 .canvasStyle {
   display: block;
   margin: 3rem auto;
-  padding: 1rem;
-  max-width: 100%;
-  border: 1px solid #ddd; /* Add a border */
-  border-radius: 10px; /* Add border radius */
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
-  background-color: #fff; /* Add a white background */
-  transition: transform 0.2s, box-shadow 0.2s; /* Add transition effects */
-}
+  padding: 2rem;
+  width: 60%;
+  border: 1px solid #ddd; 
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
+  background-color: #fff; 
+  transition: transform 0.2s, box-shadow 0.2s; /
+} 
 
 .canvasStyle:hover {
   transform: translateY(-2px); /* Lift the canvas on hover */
@@ -187,10 +148,11 @@
 .wrapper-text{
   text-align: center;
   margin-bottom: 3rem;
+  margin-top: 6rem;
 }
 
 .wrapper{
-   margin-top: 10rem ;
+   height: 95vh;
    justify-content: space-between;
 }
 .buttonWrapper {
@@ -204,7 +166,7 @@
   border: none;
   padding: 1rem 2rem;
   cursor: pointer;
-  border-bottom: solid 3px #81c784;
+  border-bottom: solid 3px #ACE1AF;
   transition: background-color 0.3s;
 }
 
@@ -214,7 +176,7 @@
 
 .tab-button.active {
   border-bottom-color: #eeeeee;
-  background-color: #81c784;
+  background-color: #ACE1AF;
 }
 
 .tab-content {

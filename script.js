@@ -77,32 +77,7 @@ window.onload = function () {
           ],
         },
       },
-      {
-        code: "Bransleslag",
-        selection: {
-          filter: "item",
-          values: [
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "16",
-            "13",
-            "14",
-            "15",
-            "17",
-            "18",
-          ],
-        },
-      },
+
       {
         code: "ContentsCode",
         selection: { filter: "item", values: ["000006W2"] },
@@ -111,157 +86,100 @@ window.onload = function () {
     response: { format: "json" },
   };
 
-  function printUtslappChart(utslappData) {
-    const data = utslappData.map((item) => ({
-      pollutant: item.key[0],
-      transportMode: item.key[1],
-      fuelType: item.key[2],
-      year: item.key[3],
-      emission: parseFloat(item.values[0]),
-    }));
+  function printDoughnutChart(utslappData) {
+    const year = "2022";
+    const transportModeNames = {
+      "8.1.2": "Inrikes flyg",
+      "8.1.3": "Utrikes flyg",
+      "8.2.1": "Järnväg",
+      "8.4.1": "Privata fritidsbåtar",
+      "8.4.2": "Kommersiella fartyg",
+      "8.5.1": "Personbilar",
+      "8.5.11": "A-traktorer",
+      "8.5.2": "Bussar",
+      "8.5.3": "Lätta lastbilar",
+      "8.5.4": "Mopeder och motorcyklar",
+      "8.5.7": "Tunga lastbilar",
+    };
 
-    const filteredData = data.filter(
-      (item) => item.pollutant === "NOx" && item.year === "2000",
-      "2001",
-      "2002",
-      "2003",
-      "2004",
-      "2005",
-      "2006",
-      "2007",
-      "2008",
-      "2009",
-      "2010",
-      "2011",
-      "2012",
-      "2013",
-      "2014",
-      "2015",
-      "2016",
-      "2017",
-      "2018",
-      "2019",
-      "2020",
-      "2021",
-      "2022"
+    const aggregatedEmissions = Object.keys(transportModeNames).reduce(
+      (acc, transportMode) => {
+        const filteredData = utslappData.filter(
+          (item) => item.key[1] === transportMode && item.key[3] === year
+        );
+
+        const emissionValue =
+          filteredData.length > 0 ? parseFloat(filteredData[0].values[0]) : 0;
+
+        acc[transportModeNames[transportMode]] = emissionValue;
+
+        return acc;
+      },
+      {}
     );
 
-    const transportModes = {};
-    filteredData.forEach((item) => {
-      if (item.transportMode.startsWith("8.1") && item.emission > 0) {
-        if (
-          item.transportMode.startsWith("8.1.2") ||
-          item.transportMode.startsWith("8.1.3")
-        ) {
-          transportModes[item.transportMode] =
-            (transportModes[item.transportMode] || 0) + item.emission;
-        } else {
-          transportModes["8.1"] = (transportModes["8.1"] || 0) + item.emission;
-        }
-      } else if (item.transportMode.startsWith("8.2") && item.emission > 0) {
-        if (item.transportMode.startsWith("8.2.1")) {
-          transportModes[item.transportMode] =
-            (transportModes[item.transportMode] || 0) + item.emission;
-        } else {
-          transportModes["8.2"] = (transportModes["8.2"] || 0) + item.emission;
-        }
-      } else if (item.transportMode.startsWith("8.4") && item.emission > 0) {
-        if (
-          item.transportMode.startsWith("8.4.1") ||
-          item.transportMode.startsWith("8.4.2")
-        ) {
-          transportModes[item.transportMode] =
-            (transportModes[item.transportMode] || 0) + item.emission;
-        } else {
-          transportModes["8.4"] = (transportModes["8.4"] || 0) + item.emission;
-        }
-      } else if (item.transportMode.startsWith("8.5") && item.emission > 0) {
-        if (
-          item.transportMode.startsWith("8.5.1") ||
-          item.transportMode.startsWith("8.5.11") ||
-          item.transportMode.startsWith("8.5.2") ||
-          item.transportMode.startsWith("8.5.3") ||
-          item.transportMode.startsWith("8.5.4") ||
-          item.transportMode.startsWith("8.5.7") ||
-          item.transportMode.startsWith("8.5.9") ||
-          item.transportMode.startsWith("8.5.8") ||
-          item.transportMode.startsWith("8.5.10")
-        ) {
-          transportModes[item.transportMode] =
-            (transportModes[item.transportMode] || 0) + item.emission;
-        } else {
-          transportModes["8.5"] = (transportModes["8.5"] || 0) + item.emission;
-        }
-      } else if (item.emission > 0) {
-        transportModes[item.transportMode] =
-          (transportModes[item.transportMode] || 0) + item.emission;
-      }
-    });
-    const label = [
-      "Inrikes flyg (<1000 m.)",
-      "Utrikes flyg (<1000 m.)",
-      "Järnväg ",
-      "Privata fritidsbåtar ",
-      "Kommersiella fartyg ",
-      "Personbilar ",
-      "A-traktorer ",
-      "Bussar ",
-      "Lätta lastbilar ",
-      "Mopeder och motorcyklar ",
-      "Tunga lastbilar ",
-    ];
-    const color = [
-      "rgba(255, 99, 132, 0.6)",
-      "rgba(54, 162, 235, 0.6)",
-      "rgba(255, 206, 86, 0.6)",
-      "rgba(75, 192, 192, 0.6)",
-      "rgba(153, 102, 255, 0.6)",
-      "rgba(255, 159, 64, 0.6)",
-      "rgba(255, 0, 0, 0.6)",
-      "rgba(0, 255, 0, 0.6)",
-      "rgba(0, 0, 255, 0.6)",
-      "rgba(255, 255, 0, 0.6)",
-      "rgba(0, 128, 128, 0.6)",
-    ];
-    console.log(transportModes);
-    console.log(filteredData);
+    const labels = Object.keys(aggregatedEmissions);
+    const data = Object.values(aggregatedEmissions);
 
-    new Chart(document.getElementById("pieChart"), {
-      type: "pie",
-      data: {
-        labels: label,
-        datasets: [
-          {
-            label: "Kväveoxid utsläpp för olika transportslag sedan 2000",
-            data: Object.values(transportModes),
-            backgroundColor: color,
-            borderColor: color,
-            borderWidth: 1,
-          },
-        ],
-      },
+    renderDoughnutChart(labels, data);
+  }
+
+  function renderDoughnutChart(labels, data) {
+    const chartData = {
+      labels: labels,
+      datasets: [
+        {
+          data: data,
+          backgroundColor: [
+            " #FFF9C4 ",
+            "#FFCCBC  ",
+            "#DCEDC8  ",
+            "#BBDEFB ",
+            "#E1BEE7 ",
+            "#FFF59D ",
+            "#FFAB91  ",
+            "#C8E6C9 ",
+            "#B3E5FC ",
+            "#E1BEE7  ",
+            "#FFE082 "
+          ],
+          hoverBackgroundColor: [
+            "rgba(255, 193, 7, 0.8)",
+            "rgba(255, 87, 34, 0.8)",
+            "rgba(76, 175, 80, 0.8)",
+            "rgba(33, 150, 243, 0.8)",
+            "rgba(156, 39, 176, 0.8)",
+            "rgba(255, 235, 59, 0.8)",
+            "rgba(255, 152, 0, 0.8)",
+            "rgba(139, 195, 74, 0.8)",
+            "rgba(3, 169, 244, 0.8)",
+            "rgba(103, 58, 183, 0.8)",
+          ],
+
+          borderWidth: 1,
+        },
+      ],
+    };
+
+    const totalEmission = data.reduce((total, emission) => total + emission, 0);
+    console.log("Total Emission:", totalEmission);
+
+    new Chart(document.getElementById("doughnutChart"), {
+      type: "doughnut",
+      data: chartData,
       options: {
         aspectRatio: 1,
         responsive: true,
         plugins: {
           legend: {
-            position: "left",
-            labels: {
-              font: {
-                size: 16,
-                
-              },
-            },
+            display: true,
+            position: "none",
           },
           title: {
-            display: true,
-            padding: 0,
-            margin: 0,
-            text: "Kväveoxid transportslag i olika sektorer sedan 2000",
+            display: false,
+            text: "Emissions by Transport Mode in 2022",
             font: {
               size: 24,
-            weight: "bold",
-
             },
           },
           tooltip: {
@@ -276,6 +194,7 @@ window.onload = function () {
           },
         },
       },
+      
     });
   }
 
@@ -393,6 +312,22 @@ window.onload = function () {
 
       const emissions = filteredData.map((item) => parseFloat(item.values[0]));
 
+      const validEmissions = [];
+      emissions.forEach((emission, index) => {
+        if (index < years.length) {
+          validEmissions.push(emission);
+        }
+      });
+
+      console.log(validEmissions);
+
+      const totalEmissions = validEmissions.reduce(
+        (total, emission) => total + emission,
+        0
+      );
+      console.log(`Total emissions for ${config.title}:`, totalEmissions);
+      console.log(`Emissions array for ${config.title}:`, validEmissions);
+
       new Chart(document.getElementById(config.elementId), {
         type: "line",
         data: {
@@ -400,10 +335,10 @@ window.onload = function () {
           datasets: [
             {
               label: config.label,
-              data: emissions,
+              data: validEmissions,
               fill: false,
-              borderColor: config.borderColor,
-              borderWidth: 2,
+              borderColor: "#ACE1AF",
+              borderWidth: 3,
             },
           ],
         },
@@ -421,7 +356,6 @@ window.onload = function () {
                 size: 24,
               },
             },
-
             tooltip: {
               bodySpacing: 10,
               padding: 15,
@@ -435,6 +369,7 @@ window.onload = function () {
           },
           scales: {
             x: {
+              min: 2000,
               max: 2023,
               type: "linear",
               display: true,
@@ -445,7 +380,7 @@ window.onload = function () {
             },
             y: {
               min: 0,
-              max: 40000,
+              max: 60000,
               display: true,
               scaleLabel: {
                 display: true,
@@ -458,6 +393,9 @@ window.onload = function () {
     });
   }
 
+
+
+
   const requestUtslapp = new Request(urlUtslapp, {
     method: "POST",
     body: JSON.stringify(queryUtslapp),
@@ -466,13 +404,41 @@ window.onload = function () {
   fetch(requestUtslapp)
     .then((response) => response.json())
     .then((dataUtslapp) => {
-      printUtslappChart(dataUtslapp.data);
+      printDoughnutChart(dataUtslapp.data);
       printLineCharts(dataUtslapp.data);
+      
     })
     .catch((error) => {
       console.error("Error fetching data:", error);
     });
 };
+
+
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollButton = document.getElementById('scrollbtn');
+  if (scrollButton) {
+    scrollButton.addEventListener('click', () => {
+      const scrollTargetSection = document.getElementById('scrollTargetSection');
+      if (scrollTargetSection) {
+        scrollTargetSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+});
+
+
+
+
+
 
 // TEST FÖR TABS
 
@@ -503,25 +469,21 @@ tabButtons.forEach((button) => {
   });
 });
 
-
-
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const buttons = document.querySelectorAll(".tab-button");
   const buttonWrapper = document.querySelector(".buttonWrapper");
 
-  buttons.forEach(function(button) {
-      button.addEventListener("click", function() {
-          const targetButton = button.getAttribute("data-id");
-          const targetElement = document.getElementById(targetButton);
-          if (targetElement) {
-              const scrollLeft = targetElement.offsetLeft - buttonWrapper.offsetLeft;
-              buttonWrapper.scrollTo({
-                  left: scrollLeft,
-                  behavior: "smooth"
-              });
-          }
-      });
+  buttons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      const targetButton = button.getAttribute("data-id");
+      const targetElement = document.getElementById(targetButton);
+      if (targetElement) {
+        const scrollLeft = targetElement.offsetLeft - buttonWrapper.offsetLeft;
+        buttonWrapper.scrollTo({
+          left: scrollLeft,
+          behavior: "smooth",
+        });
+      }
+    });
   });
 });
-
-

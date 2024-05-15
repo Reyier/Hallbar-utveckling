@@ -8,9 +8,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-
-   
-    <div class="hero">
+    <!-- <div class="hero">
       <div class="hero-text">
         <h1>Utforska Utsläpp från Olika Transportmedel</h1>
         
@@ -19,89 +17,92 @@
 
         <img src="/img/bg_wide_ny.svg" alt="one world" />
       
-          <div id="smoke">
-            <div class="s"></div>
-            <div class="s"></div>
-            <div class="s"></div>
-          </div>
-          <div id="smoke2">
-            <div class="s2"></div>
-            <div class="s2"></div>
-            <div class="s2"></div>
-          </div>
-        
+       
        
       </div>
-      </div>
+      </div> -->
+    <div class="hero">
+      <div class="pieChartContainer">
+        <canvas id="doughnutChart" class="pieChart"></canvas>
+        <div class="hero-text">
+          <h1>TOTALA UTSLÄPPEN KVÄVEOXID UNDER 2022:</h1>
 
-    <div class="pieChartContainer">
-      <!-- <h1>Utforska Utsläpp från Olika Transportmedel</h1> -->
-      <canvas id="pieChart" class="pieChart" width="600" height="600" ></canvas>
-    </div>
+          <p>43897.6 (t)</p>
 
-
-    
-    <div class="wrapper">
-      <div class="wrapper-text">
-      <h1>Välj mellan olika Transportmedel</h1>
-    </div>
-      <div class="buttonWrapper">
-        <button class="tab-button active" data-id="btninflyg">
-          Inrikes flyg
-        </button>
-        <button class="tab-button" data-id="btnutflyg">Utrikes flyg</button>
-        <button class="tab-button" data-id="btnjarn">Järnväg</button>
-        <button class="tab-button" data-id="btnbat">
-          Privata fritidsbåtar
-        </button>
-        <button class="tab-button" data-id="btnkom">Kommersiella fartyg</button>
-        <button class="tab-button" data-id="btnbil">Personbilar</button>
-        <button class="tab-button" data-id="btnA">A-traktorer</button>
-        <button class="tab-button" data-id="btnbuss">Bussar</button>
-        <button class="tab-button" data-id="btnll">Lätta lastbilar</button>
-        <button class="tab-button" data-id="btnmc">Moped & MC</button>
-        <button class="tab-button" data-id="btntl">Tunga lastbilar</button>
-      </div>
-
-      
-      <div class="contentWrapper">
-        <div class="content active" id="btninflyg">
-          <canvas id="inflygChart" class="canvasStyle" width="800" height="600"></canvas>
-        </div>
-        <div class="content active" id="btnutflyg">
-          <canvas id="utflygChart" class="canvasStyle" width="800" height="600"></canvas>
-        </div>
-        <div class="content active" id="btnjarn">
-          <canvas id="jarnvagChart" class="canvasStyle" width="800" height="600"></canvas>
-        </div>
-        <div class="content active" id="btnbat">
-          <canvas id="privbatChart"  class="canvasStyle" width="800" height="600"></canvas>
-        </div>
-        <div class="content active" id="btnkom">
-          <canvas id="fartygChart" class="canvasStyle" width="800" height="600"></canvas>
-        </div>
-        <div class="content active" id="btnbil">
-          <canvas id="bilChart" class="canvasStyle" width="800" height="600"></canvas>
-        </div>
-        <div class="content active" id="btnA">
-          <canvas id="achart" class="canvasStyle" width="800" height="600"></canvas>
-        </div>
-        <div class="content active" id="btnbuss">
-          <canvas id="busschart" class="canvasStyle" width="800" height="600"></canvas>
-        </div>
-        <div class="content active" id="btnll">
-          <canvas id="llastchart" class="canvasStyle" width="800" height="600"></canvas>
-        </div>
-        <div class="content active" id="btnmc">
-          <canvas id="mopedchart" class="canvasStyle" width="800" height="600"></canvas>
-        </div>
-        <div class="content active" id="btntl">
-          <canvas id="tlastchart"  class="canvasStyle" width="800" height="600"></canvas>
+          <button class="read-more-button" id="scrollbtn">Läs mer</button>
         </div>
       </div>
     </div>
 
-    
+
+
+
+
+    <div id="scrollTargetSection">
+      <div class="wrapper">
+        <div class="wrapper-text">
+          <h1>
+            Utforska olika transportmedel och deras utsläpp under 2000-talet
+          </h1>
+        </div>
+        <div class="buttonWrapper">
+          <button class="tab-button active" data-id="btninflyg">
+            Inrikes flyg
+          </button>
+          <button class="tab-button" data-id="btnutflyg">Utrikes flyg</button>
+          <button class="tab-button" data-id="btnjarn">Järnväg</button>
+          <button class="tab-button" data-id="btnbat">
+            Privata fritidsbåtar
+          </button>
+          <button class="tab-button" data-id="btnkom">
+            Kommersiella fartyg
+          </button>
+          <button class="tab-button" data-id="btnbil">Personbilar</button>
+          <button class="tab-button" data-id="btnA">A-traktorer</button>
+          <button class="tab-button" data-id="btnbuss">Bussar</button>
+          <button class="tab-button" data-id="btnll">Lätta lastbilar</button>
+          <button class="tab-button" data-id="btnmc">Moped & MC</button>
+          <button class="tab-button" data-id="btntl">Tunga lastbilar</button>
+        </div>
+
+        <div class="contentWrapper">
+          <div class="content active" id="btninflyg">
+            <canvas id="inflygChart" class="canvasStyle"></canvas>
+          </div>
+          <div class="content active" id="btnutflyg">
+            <canvas id="utflygChart" class="canvasStyle"></canvas>
+          </div>
+          <div class="content active" id="btnjarn">
+            <canvas id="jarnvagChart" class="canvasStyle"></canvas>
+          </div>
+          <div class="content active" id="btnbat">
+            <canvas id="privbatChart" class="canvasStyle"></canvas>
+          </div>
+          <div class="content active" id="btnkom">
+            <canvas id="fartygChart" class="canvasStyle"></canvas>
+          </div>
+          <div class="content active" id="btnbil">
+            <canvas id="bilChart" class="canvasStyle"></canvas>
+          </div>
+          <div class="content active" id="btnA">
+            <canvas id="achart" class="canvasStyle"></canvas>
+          </div>
+          <div class="content active" id="btnbuss">
+            <canvas id="busschart" class="canvasStyle"></canvas>
+          </div>
+          <div class="content active" id="btnll">
+            <canvas id="llastchart" class="canvasStyle"></canvas>
+          </div>
+          <div class="content active" id="btnmc">
+            <canvas id="mopedchart" class="canvasStyle"></canvas>
+          </div>
+          <div class="content active" id="btntl">
+            <canvas id="tlastchart" class="canvasStyle"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
     <script src="script.js"></script>
+    <!-- <script src="scripttest.js"></script> -->
   </body>
 </html>
