@@ -198,6 +198,15 @@ window.onload = function () {
     });
   }
 
+
+
+
+
+
+
+
+
+
   function printLineCharts(utslappData) {
     const years = [
       "2000",
@@ -379,7 +388,7 @@ window.onload = function () {
               },
             },
             y: {
-              min: 0,
+              min: -10000,
               max: 60000,
               display: true,
               scaleLabel: {
@@ -395,6 +404,8 @@ window.onload = function () {
 
 
 
+
+  
 
   const requestUtslapp = new Request(urlUtslapp, {
     method: "POST",
@@ -416,31 +427,10 @@ window.onload = function () {
 
 
 
-
-
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-  const scrollButton = document.getElementById('scrollbtn');
-  if (scrollButton) {
-    scrollButton.addEventListener('click', () => {
-      const scrollTargetSection = document.getElementById('scrollTargetSection');
-      if (scrollTargetSection) {
-        scrollTargetSection.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  }
-});
-
-
-
-
-
-
 // TEST FÖR TABS
+
+
+
 
 const tabButtons = document.querySelectorAll(".tab-button");
 const contents = document.querySelectorAll(".content");
@@ -463,11 +453,38 @@ tabButtons.forEach((button) => {
     content.classList.add("active");
 
     const canvas = content.querySelector("canvas");
+    console.log(canvas)
     if (canvas) {
       initializeChart(canvas.id);
+      console.log(initializeChart)
     }
   });
 });
+
+
+
+
+
+// SCROLL / READ MORE
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const scrollButton = document.getElementById('scrollbtn');
+  if (scrollButton) {
+    scrollButton.addEventListener('click', () => {
+      const scrollTargetSection = document.getElementById('scrollTargetSection');
+      if (scrollTargetSection) {
+        scrollTargetSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+});
+
+
+
+
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const buttons = document.querySelectorAll(".tab-button");
@@ -487,3 +504,104 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+
+
+// //Test för cards
+
+// // Funktion för att skriva ut donut-diagrammet i ett kort
+// function printDoughnutChartInCard(utslappData, chartId) {
+//   const year = "2021";
+//   const transportModeNames = {
+//     "8.1.2": "Inrikes flyg",
+//     "8.1.3": "Utrikes flyg",
+//     "8.2.1": "Järnväg",
+//     "8.4.1": "Privata fritidsbåtar",
+//     "8.4.2": "Kommersiella fartyg",
+//     "8.5.1": "Personbilar",
+//     "8.5.11": "A-traktorer",
+//     "8.5.2": "Bussar",
+//     "8.5.3": "Lätta lastbilar",
+//     "8.5.4": "Mopeder och motorcyklar",
+//     "8.5.7": "Tunga lastbilar",
+//   };
+
+//   const aggregatedEmissions = Object.keys(transportModeNames).reduce(
+//     (acc, transportMode) => {
+//       const filteredData = utslappData.filter(
+//         (item) => item.key[1] === transportMode && item.key[3] === year
+//       );
+
+//       const emissionValue =
+//         filteredData.length > 0 ? parseFloat(filteredData[0].values[0]) : 0;
+
+//       acc[transportModeNames[transportMode]] = emissionValue;
+
+//       return acc;
+//     },
+//     {}
+//   );
+
+//   const labels = Object.keys(aggregatedEmissions);
+//   const data = Object.values(aggregatedEmissions);
+
+//   renderDoughnutChartInCard(labels, data, chartId);
+// }
+
+// // Funktion för att rendera donut-diagrammet i ett kort
+// function renderDoughnutChartInCard(labels, data, chartId) {
+//   const chartData = {
+//     labels: labels,
+//     datasets: [
+//       {
+//         data: data,
+//         backgroundColor: [
+//           " #FFF9C4 ",
+//           "#FFCCBC  ",
+//           "#DCEDC8  ",
+//           "#BBDEFB ",
+//           "#E1BEE7 ",
+//           "#FFF59D ",
+//           "#FFAB91  ",
+//           "#C8E6C9 ",
+//           "#B3E5FC ",
+//           "#E1BEE7  ",
+//           "#FFE082 "
+//         ],
+//         hoverBackgroundColor: [
+//           "rgba(255, 193, 7, 0.8)",
+//           "rgba(255, 87, 34, 0.8)",
+//           "rgba(76, 175, 80, 0.8)",
+//           "rgba(33, 150, 243, 0.8)",
+//           "rgba(156, 39, 176, 0.8)",
+//           "rgba(255, 235, 59, 0.8)",
+//           "rgba(255, 152, 0, 0.8)",
+//           "rgba(139, 195, 74, 0.8)",
+//           "rgba(3, 169, 244, 0.8)",
+//           "rgba(103, 58, 183, 0.8)",
+//         ],
+
+//         borderWidth: 1,
+//       },
+//     ],
+//   };
+
+//   const ctx = document.getElementById(chartId).getContext("2d");
+//   new Chart(ctx, {
+//     type: "doughnut",
+//     data: chartData,
+//     options: {
+//       responsive: true,
+//       maintainAspectRatio: false,
+//     },
+//   });
+// }
+
+// // Skriv ut donut-diagram för år 2022 i det första kortet
+// printDoughnutChartInCard(utslappData, "chart2022");
+
+// // Skriv ut donut-diagram för år 2021 i det andra kortet
+// printDoughnutChartInCard(utslappData, "chart2021");
+
+// // Skriv ut donut-diagram för år 2020 i det tredje kortet
+// printDoughnutChartInCard(utslappData, "chart2020");

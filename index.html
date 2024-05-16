@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- <div class="hero">
-      <div class="hero-text">
+    <div class="hero">
+      <!-- <div class="hero-text">
         <h1>Utforska Utsläpp från Olika Transportmedel</h1>
         
-       </div>
+       </div> -->
       <div class="hero-img">
 
         <img src="/img/bg_wide_ny.svg" alt="one world" />
@@ -20,7 +20,7 @@
        
        
       </div>
-      </div> -->
+      </div> 
     <div class="hero">
       <div class="pieChartContainer">
         <canvas id="doughnutChart" class="pieChart"></canvas>
@@ -36,6 +36,35 @@
 
 
 
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">2022</h5>
+              <canvas id="chart2022" width="200" height="200"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">2021</h5>
+              <canvas id="chart2021" width="200" height="200"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">2020</h5>
+              <canvas id="chart2020" width="200" height="200"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
 
 
     <div id="scrollTargetSection">
@@ -69,22 +98,22 @@
           <div class="content active" id="btninflyg">
             <canvas id="inflygChart" class="canvasStyle"></canvas>
           </div>
-          <div class="content active" id="btnutflyg">
+          <div class="content active " id="btnutflyg">
             <canvas id="utflygChart" class="canvasStyle"></canvas>
           </div>
           <div class="content active" id="btnjarn">
             <canvas id="jarnvagChart" class="canvasStyle"></canvas>
           </div>
-          <div class="content active" id="btnbat">
+          <div class="content active " id="btnbat">
             <canvas id="privbatChart" class="canvasStyle"></canvas>
           </div>
-          <div class="content active" id="btnkom">
+          <div class="content active " id="btnkom">
             <canvas id="fartygChart" class="canvasStyle"></canvas>
           </div>
-          <div class="content active" id="btnbil">
+          <div class="content active " id="btnbil">
             <canvas id="bilChart" class="canvasStyle"></canvas>
           </div>
-          <div class="content active" id="btnA">
+          <div class="content active " id="btnA">
             <canvas id="achart" class="canvasStyle"></canvas>
           </div>
           <div class="content active" id="btnbuss">
@@ -93,7 +122,7 @@
           <div class="content active" id="btnll">
             <canvas id="llastchart" class="canvasStyle"></canvas>
           </div>
-          <div class="content active" id="btnmc">
+          <div class="content active " id="btnmc">
             <canvas id="mopedchart" class="canvasStyle"></canvas>
           </div>
           <div class="content active" id="btntl">
@@ -103,6 +132,6 @@
       </div>
     </div>
     <script src="script.js"></script>
-    <!-- <script src="scripttest.js"></script> -->
+   
   </body>
 </html>
