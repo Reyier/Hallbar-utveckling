@@ -8,64 +8,47 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+
     <div class="hero">
-      <!-- <div class="hero-text">
-        <h1>Utforska Utsläpp från Olika Transportmedel</h1>
-        
-       </div> -->
-      <div class="hero-img">
+      <div class="grid-container">
+        <div class="grid ">
+          <div class="grid-item div1">
 
-        <img src="/img/bg_wide_ny.svg" alt="one world" />
-      
-       
-       
-      </div>
-      </div> 
-    <div class="hero">
-      <div class="pieChartContainer">
-        <canvas id="doughnutChart" class="pieChart"></canvas>
-        <div class="hero-text">
-          <h1>TOTALA UTSLÄPPEN KVÄVEOXID UNDER 2022:</h1>
-
-          <p>43897.6 (t)</p>
-
-          <button class="read-more-button" id="scrollbtn">Läs mer</button>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">2022</h5>
-              <canvas id="chart2022" width="200" height="200"></canvas>
-            </div>
+            
+            
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">2021</h5>
-              <canvas id="chart2021" width="200" height="200"></canvas>
-            </div>
+          <div class="grid-item div2">
+             <canvas id="doughnutChart" class="pieChart"></canvas>
           </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">2020</h5>
-              <canvas id="chart2020" width="200" height="200"></canvas>
-            </div>
+
+          <div class="grid-item div3">
+
+          
+           <p>-63%</p>
+          </div>
+
+          <div class="grid-item div4">
+            <img src="/img/janosch-lino-n1FJg5gEBaE-unsplash.jpg" alt="">
+          </div>
+
+          <div class="grid-item div5">
+            <h1>Totala utsläppen kväveoxid under 2022: <br> 43897.6</h1>
+          </div>
+
+          <div class="grid-item div6">
+            <!-- <img src="/img/pexels-punttim-47229.jpg" alt="emission trafic"> -->
+            
+          </div>
+
+
+          <div class="grid-item div7">
+           
+            <canvas id="emissionBarChart" class="barChart"></canvas>
+             
           </div>
         </div>
       </div>
     </div>
-    
-
 
     <div id="scrollTargetSection">
       <div class="wrapper">
@@ -94,26 +77,29 @@
           <button class="tab-button" data-id="btntl">Tunga lastbilar</button>
         </div>
 
-        <div class="contentWrapper">
+        <div
+          class="contentWrapper"
+          style="position: relative; height: 30vh; width: 60vw"
+        >
           <div class="content active" id="btninflyg">
             <canvas id="inflygChart" class="canvasStyle"></canvas>
           </div>
-          <div class="content active " id="btnutflyg">
+          <div class="content active" id="btnutflyg">
             <canvas id="utflygChart" class="canvasStyle"></canvas>
           </div>
           <div class="content active" id="btnjarn">
             <canvas id="jarnvagChart" class="canvasStyle"></canvas>
           </div>
-          <div class="content active " id="btnbat">
+          <div class="content active" id="btnbat">
             <canvas id="privbatChart" class="canvasStyle"></canvas>
           </div>
-          <div class="content active " id="btnkom">
+          <div class="content active" id="btnkom">
             <canvas id="fartygChart" class="canvasStyle"></canvas>
           </div>
-          <div class="content active " id="btnbil">
+          <div class="content active" id="btnbil">
             <canvas id="bilChart" class="canvasStyle"></canvas>
           </div>
-          <div class="content active " id="btnA">
+          <div class="content active" id="btnA">
             <canvas id="achart" class="canvasStyle"></canvas>
           </div>
           <div class="content active" id="btnbuss">
@@ -122,7 +108,7 @@
           <div class="content active" id="btnll">
             <canvas id="llastchart" class="canvasStyle"></canvas>
           </div>
-          <div class="content active " id="btnmc">
+          <div class="content active" id="btnmc">
             <canvas id="mopedchart" class="canvasStyle"></canvas>
           </div>
           <div class="content active" id="btntl">
@@ -131,7 +117,11 @@
         </div>
       </div>
     </div>
+
+    <div class="contentWrapper">
+      <canvas id="combinedChart" class="canvasStyle"></canvas>
+    </div>
+
     <script src="script.js"></script>
-   
   </body>
 </html>
