@@ -131,30 +131,33 @@ window.onload = function () {
         {
           data: data,
           backgroundColor: [
-            "#440505", //Dark Red
-            "#D50000", //Bright Red
-            "#FF5722", //Tangerine
-            "#FA9600", //Saffron
-            "#FFDE20", //Sunshine Yellow
-            "#96CA2D", //Lime Green
-            "#33691E", //Forest Green
-            "#0067A6", //Deep sky blue
-            "#002253", //Dark blue
-            "#4C1273", //Deep purple
-            "#AB47BC", //Lavender
+            
+            "#A3C4F3", // Pastel Blue
+            "#CBC3E3", // Lavender Blue
+            "#B2DFFB", // Baby Blue
+            "#DCD0FF", // Pale Lavender
+            "#CCCCFF", // Periwinkle
+            "#ADD8E6", // Light Blue
+            "#E0B0FF", // Mauve
+            "#87CEEB", // Sky Blue
+            "#B0C4DE", // Light Steel Blue
+            "#D8BFD8", // Thistle
+            "#C5CBE1", // Light Periwinkle
+
           ],
           hoverBackgroundColor: [
-            "rgba(68, 5, 5, 0.8)", //Dark Red
-            "rgba(213, 0, 0, 0.8)", //Bright Red
-            "rgba(255, 87, 34, 0.8)", //Tangerine
-            "rgba(250, 150, 0, 0.8)", //Saffron
-            "rgba(255, 222, 32, 0.8)", //Sunshine Yellow
-            "rgba(150, 202, 45, 0.8)", //Lime Green
-            "rgba(51, 105, 30, 0.8)", //Forest Green
-            "rgba(0, 103, 166, 0.8)", //Deep Sky Blue
-            "rgba(0, 34, 83, 0.8)", //Dark blue
-            "rgba(76, 18, 115, 0.8)", //Deep purple
-            "rgba(171, 71, 188, 0.8)", //Lavender
+            "rgba(163, 196, 243, 0.8)", // Pastel Blue
+            "rgba(203, 195, 227, 0.8)", // Lavender Blue
+            "rgba(178, 223, 251, 0.8)", // Baby Blue
+            "rgba(216, 191, 216, 0.8)", // Thistle
+            "rgba(204, 204, 255, 0.8)", // Periwinkle
+            "rgba(173, 216, 230, 0.8)", // Light Blue
+            "rgba(224, 176, 255, 0.8)", // Mauve
+            "rgba(135, 206, 235, 0.8)", // Sky Blue
+            "rgba(176, 196, 222, 0.8)", // Light Steel Blue
+            "rgba(220, 208, 255, 0.8)", // Pale Lavender
+            "rgba(197, 203, 225, 0.8)", // Light Periwinkle
+
           ],
 
           borderWidth: 1,
@@ -178,12 +181,13 @@ window.onload = function () {
           },
           title: {
             display: true,
-            text: "Utsläpp mellan olika transporter",
-            align: 'center', 
+            text: "Utsläpp mellan olika transporter 2022",
+            align: "center",
             font: {
               size: 24,
-             
-            }
+              weight: "bold",
+            },
+            color: "#211951",
           },
           tooltip: {
             bodySpacing: 10,
@@ -241,8 +245,7 @@ window.onload = function () {
       "2019",
       "2020",
       "2021",
-      "2022"
-      
+      "2022",
     ];
 
     years.forEach((year) => {
@@ -287,7 +290,7 @@ window.onload = function () {
       );
       return totalEmission;
     });
-
+    
     const ctx = document.getElementById("emissionBarChart").getContext("2d");
     console.log(ctx);
 
@@ -298,8 +301,8 @@ window.onload = function () {
         datasets: [
           {
             data: totalEmissionsData,
-            backgroundColor: "rgba(54, 162, 235, 0.5)",
-            borderColor: "rgba(54, 162, 235, 1)",
+            backgroundColor: "#ADD8E6", //Light Blue
+            borderColor: "#C5CBE1",
             borderWidth: 1,
           },
         ],
@@ -319,6 +322,7 @@ window.onload = function () {
               size: 24,
               weight: "bold",
             },
+            color: "#211951",
           },
           tooltip: {
             bodySpacing: 10,
@@ -331,7 +335,6 @@ window.onload = function () {
             },
           },
         },
-        
 
         scales: {
           y: {
@@ -349,203 +352,6 @@ window.onload = function () {
           },
         },
       },
-    });
-  }
-
-  // LINJEDIAGRAM
-
-  function printLineCharts(utslappData) {
-    const years = [
-      "2000",
-      "2001",
-      "2002",
-      "2003",
-      "2004",
-      "2005",
-      "2006",
-      "2007",
-      "2008",
-      "2009",
-      "2010",
-      "2011",
-      "2012",
-      "2013",
-      "2014",
-      "2015",
-      "2016",
-      "2017",
-      "2018",
-      "2019",
-      "2020",
-      "2021",
-      "2022",
-    ];
-
-    const chartConfigurations = [
-      {
-        title: "Utsläpp av inrikes flyg",
-        filter: "8.1.2",
-        elementId: "inflygChart",
-        label: "Utsläpp av inrikes flyg",
-        borderColor: "rgba(182, 182, 182, 1)", //Gray
-      },
-      {
-        title: "Utsläpp av utrikes flyg",
-        filter: "8.1.3",
-        elementId: "utflygChart",
-        label: "Utsläpp av utrikes flyg",
-        borderColor: "rgba(64, 83, 27, 1)", //Dark Olive Green
-      },
-      {
-        title: "Utsläpp av järnväg",
-        filter: "8.2.1",
-        elementId: "jarnvagChart",
-        label: "Järnväg",
-        borderColor: "rgba(57, 90, 119, 1)", //Steel Blue
-      },
-      {
-        title: "Privata fritidsbåtar",
-        filter: "8.4.1",
-        elementId: "privbatChart",
-        label: "Privata fritidsbåtar",
-        borderColor: "rgba(85, 111, 68, 1)", //Olive Drab
-      },
-      {
-        title: "Kommersiella fartyg",
-        filter: "8.4.2",
-        elementId: "fartygChart",
-        label: "Kommersiella fartyg",
-        borderColor: "rgba(69, 105, 144, 1)", //Slate Blue
-      },
-      {
-        title: "Personbilar",
-        filter: "8.5.1",
-        elementId: "bilChart",
-        label: "Personbilar",
-        borderColor: "rgba(52, 63, 27, 1)", //Army Green
-      },
-      {
-        title: "A-traktorer",
-        filter: "8.5.11",
-        elementId: "achart",
-        label: "A-traktorer",
-        borderColor: "rgba(115, 193, 198, 1)", //Light Blue
-      },
-      {
-        title: "Bussar",
-        filter: "8.5.2",
-        elementId: "busschart",
-        label: "Bussar",
-        borderColor: "rgba(117, 149, 69, 1)", //Olive Green
-      },
-      {
-        title: "Lätta lastbilar",
-        filter: "8.5.3",
-        elementId: "llastchart",
-        label: "Lätta lastbilar",
-        borderColor: "rgba(79, 79, 78, 1)", // Charcoal
-      },
-      {
-        title: "Mopeder och motorcyklar",
-        filter: "8.5.4",
-        elementId: "mopedchart",
-        label: "Mopeder och motorcyklar",
-        borderColor: "rgba(46, 71, 89, 1)", //Dark Slate Blue
-      },
-      {
-        title: "Tunga lastbilar",
-        filter: "8.5.7",
-        elementId: "tlastchart",
-        label: "Tunga lastbilar",
-        borderColor: "rgba(255, 99, 132, 1)",
-      },
-    ];
-
-    chartConfigurations.forEach((config) => {
-      const filteredData = utslappData.filter(
-        (item) => item.key[1] === config.filter
-      );
-
-      const emissions = filteredData.map((item) => parseFloat(item.values[0]));
-
-      const validEmissions = [];
-      emissions.forEach((emission, index) => {
-        if (index < years.length) {
-          validEmissions.push(emission);
-        }
-      });
-
-      console.log(validEmissions);
-
-      const totalEmissions = validEmissions.reduce(
-        (total, emission) => total + emission,
-        0
-      );
-      console.log(`Total emissions for ${config.title}:`, totalEmissions);
-      console.log(`Emissions array for ${config.title}:`, validEmissions);
-
-      new Chart(document.getElementById(config.elementId), {
-        type: "line",
-        data: {
-          labels: years,
-          datasets: [
-            {
-              label: config.label,
-              data: validEmissions,
-              fill: false,
-              borderColor: "#ACE1AF",
-              borderWidth: 3,
-            },
-          ],
-        },
-        options: {
-          responsive: true,
-          plugins: {
-            legend: {
-              display: true,
-              position: "none",
-            },
-            title: {
-              display: true,
-              text: config.title,
-              font: {
-                size: 24,
-              },
-            },
-            tooltip: {
-              bodySpacing: 10,
-              padding: 15,
-              bodyFont: {
-                size: 16,
-              },
-              titleFont: {
-                size: 18,
-              },
-            },
-          },
-          scales: {
-            x: {
-              min: 2000,
-              max: 2023,
-              type: "linear",
-              display: true,
-              scaleLabel: {
-                display: true,
-                labelString: "Year",
-              },
-            },
-            y: {
-              min: -10000,
-              max: 60000,
-              display: true,
-              scaleLabel: {
-                display: true,
-                labelString: "NOx Emissions",
-              },
-            },
-          },
-        },
-      });
     });
   }
 
@@ -696,27 +502,19 @@ window.onload = function () {
     });
 
     const backgroundColor = [
-      "#FFF9C4",
-
-      "#FFCCBC",
-
-      "#DCEDC8",
-
-      "#BBDEFB",
-
-      "#E1BEE7",
-
-      "#FFF59D",
-
-      "#FFAB91",
-
-      "#C8E6C9",
-
-      "#B3E5FC",
-
-      "#E1BEE7",
-
-      "#FFE082",
+      
+      "#A3C4F3", // Pastel Blue
+      "#CBC3E3", // Lavender Blue
+      "#B2DFFB", // Baby Blue
+      "#DCD0FF", // Pale Lavender
+      "#CCCCFF", // Periwinkle
+      "#ADD8E6", // Light Blue
+      "#E0B0FF", // Mauve
+      "#87CEEB", // Sky Blue
+      "#B0C4DE", // Light Steel Blue
+      "#D8BFD8", // Thistle
+      "#C5CBE1", // Light Periwinkle
+      
     ];
 
     new Chart(document.getElementById("combinedChart"), {
@@ -728,7 +526,10 @@ window.onload = function () {
         datasets: chartData.map((dataset, index) => ({
           ...dataset,
 
-          borderColor: backgroundColor[index % backgroundColor.length], // Ensure cycling through colors
+          borderColor: backgroundColor[index % backgroundColor.length],
+          borderWidth: 2,
+
+          backgroundColor: backgroundColor[index % backgroundColor.length],
         })),
       },
 
@@ -738,7 +539,6 @@ window.onload = function () {
         plugins: {
           legend: {
             display: true,
-
             position: "top",
 
             labels: {
@@ -758,6 +558,7 @@ window.onload = function () {
 
               weight: "bold",
             },
+            color: "#211951",
           },
 
           tooltip: {
@@ -856,7 +657,6 @@ window.onload = function () {
     .then((dataUtslapp) => {
       printDoughnutChart(dataUtslapp.data);
       printcombinedCharts(dataUtslapp.data);
-      printLineCharts(dataUtslapp.data);
 
       const totalEmissionsPerYear = calculateTotalEmissionsPerYear(
         dataUtslapp.data
@@ -867,71 +667,3 @@ window.onload = function () {
       console.error("Error fetching data:", error);
     });
 };
-
-// TEST FÖR TABS
-
-const tabButtons = document.querySelectorAll(".tab-button");
-const contents = document.querySelectorAll(".content");
-
-function deactivateAllTabs() {
-  tabButtons.forEach((button) => {
-    button.classList.remove("active");
-  });
-  contents.forEach((content) => {
-    content.classList.remove("active");
-  });
-}
-
-tabButtons.forEach((button) => {
-  button.addEventListener("click", function () {
-    const id = button.dataset.id;
-    deactivateAllTabs();
-    button.classList.add("active");
-    const content = document.getElementById(id);
-    content.classList.add("active");
-
-    const canvas = content.querySelector("canvas");
-    console.log(canvas);
-    if (canvas) {
-      initializeChart(canvas.id);
-      console.log(initializeChart);
-    }
-  });
-});
-
-// SCROLL / READ MORE
-
-document.addEventListener("DOMContentLoaded", () => {
-  const scrollButton = document.getElementById("scrollbtn");
-  if (scrollButton) {
-    scrollButton.addEventListener("click", () => {
-      const scrollTargetSection = document.getElementById(
-        "scrollTargetSection"
-      );
-      if (scrollTargetSection) {
-        scrollTargetSection.scrollIntoView({ behavior: "smooth" });
-      }
-    });
-  }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const buttons = document.querySelectorAll(".tab-button");
-  const buttonWrapper = document.querySelector(".buttonWrapper");
-
-  buttons.forEach(function (button) {
-    button.addEventListener("click", function () {
-      const targetButton = button.getAttribute("data-id");
-      const targetElement = document.getElementById(targetButton);
-      if (targetElement) {
-        const scrollLeft = targetElement.offsetLeft - buttonWrapper.offsetLeft;
-        buttonWrapper.scrollTo({
-          left: scrollLeft,
-          behavior: "smooth",
-        });
-      }
-    });
-  });
-});
-
-// TEST FÖR CARDS

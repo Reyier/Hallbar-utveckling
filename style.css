@@ -17,7 +17,8 @@
 }
 
 body {
-  background:#EEEDED;
+  background:#F0F3FF;
+  color: #211951;
 }
 
 .hero{
@@ -26,6 +27,7 @@ body {
 
 }
   
+
 .grid-container {
   
   width: 100%;
@@ -36,22 +38,29 @@ body {
 
 .grid-item{
   display: flex;
-  justify-content: center; /* Horizontally center the content */
-  align-items: center; /* Vertically center the content */
+  justify-content: center; 
+  align-items: center;
   position: relative;
   font-family: "Raleway", sans-serif; 
-  border: 8px solid #0067A6; 
-  border-radius: 30px;
+  border: 1px solid #ddd; 
+  border-radius: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
-  background-color: rgba(0, 103, 166, 0.2); 
+  background-color: #fff; 
   transition: transform 0.2s, box-shadow 0.2s; 
- padding: 2rem;
+  padding:1rem;
   justify-content: center;
   align-items: center;
+  
+  
+}
+
+.grid-item:hover {
+  transform: translateY(-2px); 
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); 
 }
 
 .grid {
- 
+ display: flex;
   width: 80%;
   height: 80vh;
   margin: auto;
@@ -66,15 +75,33 @@ body {
 
 
 
-
-.grid-item.div3{
+.grid-item.div3 {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
   font-family: "Raleway", sans-serif;
   font-weight: bold;
-  font-style: normal;
-  font-optical-sizing: auto;
-  font-size: 100px;
 }
 
+
+.grid-item.div3 .text {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  text-align: center;
+}
+
+.grid-item.div3 h1 {
+  font-size: 5rem;
+  margin: 0; 
+  padding: 0;
+}
+
+.grid-item.div3 p {
+  font-size: 2rem;
+  margin: 0; 
+  padding: 0; 
+}
 
 
 
@@ -86,7 +113,7 @@ body {
   width: 100%;
   height: 100%;
   pad: 0rem;
-  border-radius: 20px; 
+  border-radius: 10px; 
 }
 
 .grid-item.div4{
@@ -118,6 +145,7 @@ body {
   height: 30%;
   width: 60vw;
   margin: auto;
+  margin-bottom: 5rem;
 }
 
 .canvasStyle{
@@ -140,71 +168,7 @@ body {
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Enhance box shadow on hover */
 }
 
-.wrapper-text{
-  text-align: center;
-  margin-bottom: 3rem;
-  margin-top: 6rem;
-}
-
-.wrapper{
-   height: 95vh;
-   justify-content: space-between;
-}
-.buttonWrapper {
-  display: flex;
-  margin-bottom: 1rem;
-  justify-content: center;
-  width: 60%;
-  margin: auto;
-}
-
-.tab-button {
-  background: none;
-  border: none;
-  padding: 1rem 2rem;
-  cursor: pointer;
-  border-bottom: solid 3px #ACE1AF;
-  transition: background-color 0.3s;
-}
-
-.tab-button:not(.active):hover {
-  background-color: #eeeeee;
-}
-
-.tab-button.active {
-  border-bottom-color: #eeeeee;
-  background-color: #ACE1AF;
-}
-
-.tab-content {
-  display: none;
-}
-
-.tab-content.active {
-  display: block;
-  animation: tabAppear 0.6s;
-}
   
-  .active {
-    background-color: white;
-  }
-  
-  p {
-    text-align: left;
-    padding: 10px;
-  }
-  
-  .content {
-    display: none;
-    padding: 10px 20px;
-  }
-  
-  .content.active {
-    display: block;
-  }
-
-
-
 
 
 
