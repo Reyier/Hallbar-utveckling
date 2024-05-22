@@ -184,10 +184,11 @@ window.onload = function () {
             text: "Utsläpp mellan olika transporter 2022",
             align: "center",
             font: {
+              family:"'stolzl', sans-serif",
               size: 24,
               weight: "bold",
             },
-            color: "#211951",
+            color: "#333",
           },
           tooltip: {
             bodySpacing: 10,
@@ -319,10 +320,11 @@ window.onload = function () {
             text: "Totala utsläpp kväveoxid per år",
 
             font: {
+              family:"'stolzl', sans-serif",
               size: 24,
               weight: "bold",
             },
-            color: "#211951",
+            color: "#333",
           },
           tooltip: {
             bodySpacing: 10,
@@ -348,6 +350,7 @@ window.onload = function () {
             title: {
               display: false,
               text: "Year",
+              
             },
           },
         },
@@ -543,6 +546,7 @@ window.onload = function () {
 
             labels: {
               font: {
+                family: "'stolzl', sans-serif",
                 size: 14,
               },
             },
@@ -554,11 +558,12 @@ window.onload = function () {
             text: "Utforska olika transportmedel och deras utsläpp under 2000-talet",
 
             font: {
+              family:"'stolzl', sans-serif",
               size: 24,
 
               weight: "bold",
             },
-            color: "#211951",
+            color: "#333",
           },
 
           tooltip: {
@@ -571,8 +576,8 @@ window.onload = function () {
             },
 
             titleFont: {
+              family:"'stolzl', sans-serif",
               size: 18,
-
               weight: "bold",
             },
           },
@@ -594,20 +599,21 @@ window.onload = function () {
               color: "rgba(0, 0, 0, 0.1)",
             },
 
-            scaleLabel: {
+            title: {
               display: true,
 
-              labelString: "Year",
+              text: "År",
 
               font: {
+                family: "'stolzl', sans-serif",
                 size: 16,
-
                 weight: "bold",
               },
             },
 
             ticks: {
               font: {
+                family: "'stolzl', sans-serif",
                 size: 14,
               },
             },
@@ -638,6 +644,7 @@ window.onload = function () {
 
             ticks: {
               font: {
+                family: "'stolzl', sans-serif",
                 size: 14,
               },
             },
@@ -667,3 +674,98 @@ window.onload = function () {
       console.error("Error fetching data:", error);
     });
 };
+
+// SCROLL
+
+document.querySelectorAll('.learn-more-btn').forEach(button => {
+  button.addEventListener('click', function() {
+    const targetId = this.getAttribute('data-target');
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+
+
+// MODAL
+
+
+
+
+
+
+
+var modal = document.getElementById("canvasModal");
+var span = document.getElementsByClassName("close")[0];
+var modalCanvas = document.getElementById("modalCanvas");
+var modalChart;
+
+function openModal(canvasId) {
+  var originalCanvas = document.getElementById(canvasId);
+
+  if (originalCanvas) {
+    var originalCtx = originalCanvas.getContext('2d');
+    var originalChart = Chart.getChart(originalCtx);
+
+    if (originalChart) {
+      modal.style.display = "block";
+      modalCanvas.width = originalCanvas.width;
+      modalCanvas.height = originalCanvas.height;
+
+      if (modalChart) {
+        modalChart.destroy();
+      }
+
+      modalChart = new Chart(modalCanvas, {
+        type: originalChart.config.type,
+        data: originalChart.config.data,
+        options: originalChart.config.options
+      });
+    }
+  }
+}
+
+function openModalWithContent(contentClass) {
+  console.log("Content class:", contentClass); // Log the content class to ensure it's correct
+  modal.style.display = "block";
+  var contents = document.getElementsByClassName(contentClass);
+  console.log("Contents:", contents); // Log the contents to see if any paragraphs are found
+  if (contents.length > 0) {
+    // Assuming you want to concatenate the content of all paragraphs with the specified class
+    var combinedContent = Array.from(contents).map(p => p.innerHTML).join('');
+    console.log("Combined content:", combinedContent); // Log the combined content to see what's being displayed
+    modalCanvas.innerHTML = combinedContent;
+  }
+}
+
+document.querySelectorAll('.grid-item').forEach(item => {
+  var target = item.getAttribute('data-target');
+  if (target) {
+    item.addEventListener('click', function() {
+      openModal(target);
+    });
+  }
+});
+
+document.querySelectorAll('.learn-more-btn').forEach(btn => {
+  var targetId = btn.getAttribute('data-additional-text');
+  if (targetId) {
+    btn.addEventListener('click', function() {
+      openModalWithContent(targetId);
+    });
+  }
+});
+
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+//TEXTMODAL
+

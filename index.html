@@ -6,46 +6,78 @@
     <title>Charts</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/thm5gkb.css">
   </head>
   <body>
     <div class="hero">
-      <div class="grid-container">
-        <div class="grid">
-          <div class="grid-item div1">
-            <h1>Totala utsläppen kväveoxid under 2022: 43897.6 (t) </h1>
-          </div>
-          <div class="grid-item div2">
-            <canvas id="doughnutChart" class="pieChart"></canvas>
-          </div>
 
-          <div class="grid-item div3">
-            <div class="text">  <h1> -63 %</h1>
-            <p>Sedan 2000</p>
-          </div>
-          </div>
+      <div id="canvasModal" class="modal">
+        <span class="close">&times;</span>
+        <canvas id="modalCanvas"></canvas>
+      </div>
 
-          <div class="grid-item div4">
-            
-          </div>
+      
 
-          <div class="grid-item div5">
-            <h1>Transportsektorns Kväveoxidutsläpp i Sverige</h1>
-          </div>
 
-          <div class="grid-item div6">
-            <!-- <img src="/img/pexels-punttim-47229.jpg" alt="emission trafic"> -->
-            <canvas id="emissionBarChart" class="barChart"></canvas>
-          </div>
+   <div class="grid-container">
+  <div class="grid">
+    <div class="grid-item div1">
+      <h1>Läs mer om utläpp hos olika transportmedel</h1>
+      
+      <img src="/img/transport_ship_1.png" id="ship" class="illustrations">
+      <button class="learn-more-btn" data-target="#combinedChartSection">Läs Mer</button>
+    </div>
 
-          <div class="grid-item div7">
-           
-         
-          </div>
-        </div>
+    <div class="grid-item div2" data-target="doughnutChart">
+     
+      <canvas id="doughnutChart" class="pieChart"></canvas>
+      <span class="zoom-icon">&#128269;</span>
+    </div>
+
+    <div class="grid-item div3 at-text" data-target="additionalText3">
+      <div class="text">
+        <img src="/img/transport_car_1.png" id="car" class="illustrations">
+        <h2 class="stat">-63 %</h2>
+        <p>Sedan 2000</p>
+        <button class="learn-more-btn" data-additional-text="additionalText1">Läs Mer</button>
       </div>
     </div>
 
-    <div class="contentWrapper">
+    <div class="grid-item div4 at-text" >
+      <div class="text">
+        <p>Totala utsläppen kväveoxid under 2022: </p>
+        <h2 class="stat">43 897.6 (t)</h2>
+        
+        <img src="/img/transport_train_1.png" id="train" class="illustrations">
+        <button class="learn-more-btn" data-additional-text="additionalText2">Läs Mer</button>
+      </div>
+    </div>
+
+    <div class="grid-item div5">
+      <div class="text">
+        <h1>Transportsektorns Kväveoxidutsläpp i Sverige år 2000-2022</h1>
+        <img src="/img/transport_plane_1.png" id="plane" class="illustrations">
+      </div>
+    </div>
+
+    <div class="grid-item div6" data-target="emissionBarChart">
+      
+      <canvas id="emissionBarChart" class="barChart"></canvas>
+      <span class="zoom-icon">&#128269;</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal">
+  <p class="additional-text" style="display: none;">This is additional text for button 1.</p>
+  <p class="additional-text" style="display: none;">This is additional text for button 2.</p>
+</div>
+
+
+
+
+    <div id="combinedChartSection" class="contentWrapper">
       <canvas id="combinedChart" class="canvasStyle"></canvas>
     </div>
 
