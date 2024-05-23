@@ -181,13 +181,16 @@ window.onload = function () {
           },
           title: {
             display: true,
-            text: "Utsläpp mellan olika transporter 2022",
+            text: "Utsläpp mellan olika transporter 2022 (t)",
             align: "center",
             font: {
               family:"'stolzl', sans-serif",
               size: 24,
               weight: "bold",
             },
+            padding: {
+              bottom: 20 // Adjust the value as needed
+          },
             color: "#333",
           },
           tooltip: {
@@ -317,13 +320,16 @@ window.onload = function () {
           },
           title: {
             display: true,
-            text: "Totala utsläpp kväveoxid per år",
+            text: "Totala utsläpp kväveoxid per år (t)",
 
             font: {
               family:"'stolzl', sans-serif",
               size: 24,
               weight: "bold",
             },
+            padding: {
+              bottom: 20 // Adjust the value as needed
+          },
             color: "#333",
           },
           tooltip: {
@@ -555,7 +561,7 @@ window.onload = function () {
           title: {
             display: true,
 
-            text: "Utforska olika transportmedel och deras utsläpp under 2000-talet",
+            text: "Utforska olika transportmedel och deras utsläpp under 2000-talet (t)",
 
             font: {
               family:"'stolzl', sans-serif",
@@ -563,6 +569,9 @@ window.onload = function () {
 
               weight: "bold",
             },
+            padding: {
+              bottom: 20 // Adjust the value as needed
+          },
             color: "#333",
           },
 
@@ -589,27 +598,17 @@ window.onload = function () {
 
             max: 2023,
 
-            type: "linear",
+            
 
             display: true,
-
+            
             grid: {
               display: true,
 
               color: "rgba(0, 0, 0, 0.1)",
             },
 
-            title: {
-              display: true,
-
-              text: "År",
-
-              font: {
-                family: "'stolzl', sans-serif",
-                size: 16,
-                weight: "bold",
-              },
-            },
+        
 
             ticks: {
               font: {
@@ -690,19 +689,14 @@ document.querySelectorAll('.learn-more-btn').forEach(button => {
 
 
 // MODAL
-
-
-
-
-
-
-
 var modal = document.getElementById("canvasModal");
 var span = document.getElementsByClassName("close")[0];
 var modalCanvas = document.getElementById("modalCanvas");
+var modalTextContent = document.getElementById("modalTextContent");
 var modalChart;
 
 function openModal(canvasId) {
+  console.log("Opening modal with canvas ID:", canvasId);
   var originalCanvas = document.getElementById(canvasId);
 
   if (originalCanvas) {
@@ -711,6 +705,10 @@ function openModal(canvasId) {
 
     if (originalChart) {
       modal.style.display = "block";
+      modalCanvas.style.display = "block";
+      modalTextContent.style.display = "none"; // Hide text content
+      modalTextContent.classList.remove("active");
+
       modalCanvas.width = originalCanvas.width;
       modalCanvas.height = originalCanvas.height;
 
@@ -728,15 +726,19 @@ function openModal(canvasId) {
 }
 
 function openModalWithContent(contentClass) {
-  console.log("Content class:", contentClass); // Log the content class to ensure it's correct
-  modal.style.display = "block";
+  console.log("Opening modal with content class:", contentClass);
   var contents = document.getElementsByClassName(contentClass);
-  console.log("Contents:", contents); // Log the contents to see if any paragraphs are found
+  console.log("Found contents:", contents);
+
   if (contents.length > 0) {
-    // Assuming you want to concatenate the content of all paragraphs with the specified class
     var combinedContent = Array.from(contents).map(p => p.innerHTML).join('');
-    console.log("Combined content:", combinedContent); // Log the combined content to see what's being displayed
-    modalCanvas.innerHTML = combinedContent;
+    console.log("Combined content:", combinedContent);
+
+    modal.style.display = "block";
+    modalCanvas.style.display = "none"; // Hide the canvas
+    modalTextContent.style.display = "flex"; // Show text content
+    modalTextContent.classList.add("active");
+    modalTextContent.innerHTML = combinedContent; // Set the combined content
   }
 }
 
@@ -760,12 +762,98 @@ document.querySelectorAll('.learn-more-btn').forEach(btn => {
 
 span.onclick = function() {
   modal.style.display = "none";
+  modalCanvas.style.display = "none"; // Ensure canvas is hidden
+  modalTextContent.style.display = "none"; // Ensure text content is hidden
+  modalTextContent.classList.remove("active");
+  if (modalChart) {
+    modalChart.destroy();
+    modalChart = null;
+  }
 }
 
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+    modalCanvas.style.display = "none"; // Ensure canvas is hidden
+    modalTextContent.style.display = "none"; // Ensure text content is hidden
+    modalTextContent.classList.remove("active");
+    if (modalChart) {
+      modalChart.destroy();
+      modalChart = null;
+    }
   }
 }
+
+
+// var modal = document.getElementById("canvasModal");
+// var span = document.getElementsByClassName("close")[0];
+// var modalCanvas = document.getElementById("modalCanvas");
+// var modalChart;
+
+// function openModal(canvasId) {
+//   var originalCanvas = document.getElementById(canvasId);
+
+//   if (originalCanvas) {
+//     var originalCtx = originalCanvas.getContext('2d');
+//     var originalChart = Chart.getChart(originalCtx);
+
+//     if (originalChart) {
+//       modal.style.display = "block";
+//       modalCanvas.width = originalCanvas.width;
+//       modalCanvas.height = originalCanvas.height;
+
+//       if (modalChart) {
+//         modalChart.destroy();
+//       }
+
+//       modalChart = new Chart(modalCanvas, {
+//         type: originalChart.config.type,
+//         data: originalChart.config.data,
+//         options: originalChart.config.options
+//       });
+//     }
+//   }
+// }
+
+// function openModalWithContent(contentClass) {
+//   console.log("Content class:", contentClass); // Log the content class to ensure it's correct
+//   modal.style.display = "block";
+//   var contents = document.getElementsByClassName(contentClass);
+//   console.log("Contents:", contents); // Log the contents to see if any paragraphs are found
+//   if (contents.length > 0) {
+//     // Assuming you want to concatenate the content of all paragraphs with the specified class
+//     var combinedContent = Array.from(contents).map(p => p.innerHTML).join('');
+//     console.log("Combined content:", combinedContent); // Log the combined content to see what's being displayed
+//     modalCanvas.innerHTML = combinedContent;
+//   }
+// }
+
+// document.querySelectorAll('.grid-item').forEach(item => {
+//   var target = item.getAttribute('data-target');
+//   if (target) {
+//     item.addEventListener('click', function() {
+//       openModal(target);
+//     });
+//   }
+// });
+
+// document.querySelectorAll('.learn-more-btn').forEach(btn => {
+//   var targetId = btn.getAttribute('data-additional-text');
+//   if (targetId) {
+//     btn.addEventListener('click', function() {
+//       openModalWithContent(targetId);
+//     });
+//   }
+// });
+
+// span.onclick = function() {
+//   modal.style.display = "none";
+// }
+
+// window.onclick = function(event) {
+//   if (event.target == modal) {
+//     modal.style.display = "none";
+//   }
+// }
 //TEXTMODAL
 

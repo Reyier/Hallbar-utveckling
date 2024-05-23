@@ -1,13 +1,10 @@
-*{
+* {
   font-family: "Raleway", sans-serif;
-    margin: 0;
-    padding: 0;
-    
-    
+  margin: 0;
+  padding: 0;
 }
 
-
-@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 
 /*.ralewayuniquifier {
   font-family: "Raleway", sans-serif;
@@ -16,55 +13,45 @@
   font-style: normal;
 }*/
 
-
 body {
-  background:#F0F3FF;
+  background: #f0f3ff;
   color: #211951;
-  
 }
 
-.hero{
-  height:100vh;
-
-
+.hero {
+  height: 100vh;
 }
-  
 
 .grid-container {
-  
   width: 100%;
   height: 100vh;
-  margin: auto; 
-  
+  margin: auto;
 }
 
-.grid-item{
+.grid-item {
   display: flex;
-  justify-content: center; 
-  align-items: center;
-  position: relative;
-  font-family: "Raleway", sans-serif; 
-  font-weight: bold;
-  border: 1px solid #ddd; 
-  border-radius: 10px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
-  background-color: #fff; 
-  transition: transform 0.2s, box-shadow 0.2s; 
-  padding:1rem;
   justify-content: center;
   align-items: center;
-  
-  
-  
+  position: relative;
+  font-family: "Raleway", sans-serif;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+  padding: 2rem 1rem 1rem 1rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .grid-item:hover {
-  transform: translateY(-2px); 
-  box-shadow: 0px 5px 15px #ADD8E6; 
+  transform: translateY(-2px);
+  box-shadow: 0px 5px 15px #add8e6;
 }
 
 .grid {
- display: flex;
+  display: flex;
   width: 80%;
   height: 80vh;
   margin: auto;
@@ -74,7 +61,6 @@ body {
   grid-column-gap: 10px;
   grid-row-gap: 10px;
   padding-top: 5%;
-  
 }
 
 #train {
@@ -93,7 +79,7 @@ body {
 
 #plane {
   padding-top: 1rem;
-  
+
   width: 40%;
   height: auto;
   flex-direction: column;
@@ -102,11 +88,9 @@ body {
 
 #ship {
   padding-top: 1rem;
-  
-  width: 40%;
+  width: 30%;
   height: auto;
   flex-direction: column;
-
 }
 
 .text {
@@ -118,62 +102,70 @@ body {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 1.5rem;
   color: #333;
   text-align: left;
   font-family: "stolzl", sans-serif;
-font-weight: 700;
-font-style: normal;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
 }
 
-h2{
-  font-size: 1.2rem;
+h2 {
+  font-size: 1.5rem;
   text-align: center;
   color: #333;
   font-family: "stolzl", sans-serif;
-font-weight: 700;
-font-style: normal;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
 }
 p {
   font-size: 1rem;
   color: #666;
   font-family: "stolzl", sans-serif;
-font-weight: 400;
-font-style: normal;
+  font-weight: 400;
+  font-style: normal;
 }
 
-.div1, .div3, .div5 {
+.div1,
+.div3,
+.div5 {
   display: flex;
   flex-direction: column;
-  justify-content: left;
+ 
   align-items: left;
 }
 
-
-.stat { 
+.stat {
   padding-top: 1rem;
-  font-size: 4rem;
+  font-size: 2rem;
   font-family: "stolzl", sans-serif;
-font-weight: 700;
-font-style: normal;
+  font-weight: 700;
+  font-style: normal;
 }
 
-
-
-.div1 { grid-area: 3 / 4 / 4 / 6; }
-.div2 { grid-area: 1 / 4 / 3 / 6; }
-.div3 { grid-area: 1 / 3 / 2 / 4; }
-.div4 { grid-area: 2 / 1 / 4 / 2; }
-.div5 { grid-area: 1 / 1 / 2 / 3; }
-.div6 { grid-area: 2 / 2 / 4 / 4; }
-
-
-
-
-
+.div1 {
+  grid-area: 3 / 4 / 4 / 6;
+}
+.div2 {
+  grid-area: 1 / 4 / 3 / 6;
+}
+.div3 {
+  grid-area: 1 / 3 / 2 / 4;
+}
+.div4 {
+  grid-area: 2 / 1 / 4 / 2;
+}
+.div5 {
+  grid-area: 1 / 1 / 2 / 3;
+}
+.div6 {
+  grid-area: 2 / 2 / 4 / 4;
+}
 
 .learn-more-btn {
-  background-color: #ADD8E6;
+  background-color: #add8e6;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -191,10 +183,8 @@ font-style: normal;
   display: flex; /* Add display flex */
 }
 
-
-
 .learn-more-btn:hover {
-  background-color: #87CEEB;
+  background-color: #87ceeb;
   transform: scale(1.05);
 }
 
@@ -202,16 +192,7 @@ font-style: normal;
   outline: none;
 }
 
-
-
-
-
-
-
-
-
-
-.contentWrapper{
+.contentWrapper {
   position: relative;
   height: 80vh;
   width: 80%;
@@ -219,27 +200,21 @@ font-style: normal;
   margin-bottom: 10rem;
 }
 
-.canvasStyle{
+.canvasStyle {
   position: relative;
-  font-family: "Raleway", sans-serif; 
-  border: 1px solid #ddd; 
+  font-family: "Raleway", sans-serif;
+  border: 1px solid #ddd;
   border-radius: 10px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
-  background-color: #fff; 
-  transition: transform 0.2s, box-shadow 0.2s; 
-  padding:2rem;
-
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+  padding: 2rem;
 }
-
-
-
 
 .canvasStyle:hover {
   transform: translateY(-2px); /* Lift the canvas on hover */
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Enhance box shadow on hover */
 }
-
-
 
 .zoom-icon {
   position: absolute;
@@ -257,52 +232,93 @@ font-style: normal;
   display: block;
 }
 
-
 /* Modal styles */
-.modal, .additional{
-  display: none; 
-  position: fixed; 
-  z-index: 1000; 
-  left: 50%; 
-  top: 50%; 
-  width: 80%;
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 50%;
+  top: 50%;
+  width: 81%;
   height: 81vh;
   transform: translate(-50%, -50%);
-  background-color: #fff; 
- 
+  background-color: #fff;
+
   align-items: center;
   justify-content: center;
-  font-family: "Raleway", sans-serif; 
+  font-family: "Raleway", sans-serif;
   font-weight: bold;
-  border: 1px solid #ADD8E6; 
+  border: 1px solid #add8e6;
   border-radius: 10px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 /* Modal content styles */
-
 .modal-content {
   position: relative;
-  margin: auto; 
-  background-color: #fff; 
-  border: 1px solid #ADD8E6; 
+  margin: auto;
+  height: 100%;
+  background-color: #fff;
+  border: 1px solid #add8e6;
   border-radius: 10px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s, box-shadow 0.2s; 
+  transition: transform 0.2s, box-shadow 0.2s;
   overflow: auto;
 }
 
-.modal canvas  {
+.modal-content .modal-body {
+  height: 90%; /* Apply the same height as the canvas */
+  width: auto;
+  padding: 2rem;
+  margin: auto; /* Center the content horizontally */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
-    height: 90% !important;
-    width: auto !important;
-    padding: 2rem;
-    margin: auto; /* Center the canvas horizontally */
+.modal canvas {
+  height: 100%; /* Use full height within the modal body */
+  width: auto;
+}
+
+.additionalText1, .additionalText2{
+  display: none;
+}
+
+.modal .text-content {
+  display: none;
+  font-family: "Raleway", sans-serif;
+  color: #333;
+  line-height: 1.6;
+  text-align: left;
+}
+
+.modal .text-content.active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+/* Style for each paragraph */
+.modal .text-content p {
+  padding: 1.5rem;
+  border-radius: 15px;
+  width: 50%;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect for paragraphs */
+.modal .text-content p:hover {
+  transform: translateY(-5px);
 }
 
 .close {
@@ -321,5 +337,3 @@ font-style: normal;
   text-decoration: none;
   cursor: pointer;
 }
-
-
