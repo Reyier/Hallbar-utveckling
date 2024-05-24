@@ -132,32 +132,31 @@ window.onload = function () {
           data: data,
           backgroundColor: [
             
-            "#A3C4F3", // Pastel Blue
-            "#CBC3E3", // Lavender Blue
-            "#B2DFFB", // Baby Blue
-            "#DCD0FF", // Pale Lavender
-            "#CCCCFF", // Periwinkle
-            "#ADD8E6", // Light Blue
-            "#E0B0FF", // Mauve
-            "#87CEEB", // Sky Blue
-            "#B0C4DE", // Light Steel Blue
-            "#D8BFD8", // Thistle
-            "#C5CBE1", // Light Periwinkle
+            "#A3C4F3", 
+            "#CBC3E3", 
+            "#B2DFFB", 
+            "#DCD0FF",
+            "#CCCCFF", 
+            "#ADD8E6",
+            "#E0B0FF", 
+            "#87CEEB", 
+            "#B0C4DE", 
+            "#D8BFD8", 
+            "#C5CBE1", 
 
           ],
           hoverBackgroundColor: [
-            "rgba(163, 196, 243, 0.8)", // Pastel Blue
-            "rgba(203, 195, 227, 0.8)", // Lavender Blue
-            "rgba(178, 223, 251, 0.8)", // Baby Blue
-            "rgba(216, 191, 216, 0.8)", // Thistle
-            "rgba(204, 204, 255, 0.8)", // Periwinkle
-            "rgba(173, 216, 230, 0.8)", // Light Blue
-            "rgba(224, 176, 255, 0.8)", // Mauve
-            "rgba(135, 206, 235, 0.8)", // Sky Blue
-            "rgba(176, 196, 222, 0.8)", // Light Steel Blue
-            "rgba(220, 208, 255, 0.8)", // Pale Lavender
-            "rgba(197, 203, 225, 0.8)", // Light Periwinkle
-
+            "#8393C1", 
+            "#A9A2B1", 
+            "#91AFC7", 
+            "#B89EA6", 
+            "#ABABCB", 
+            "#8CA9B2", 
+            "#C08FCD", 
+            "#659EB7", 
+            "#8F94AA", 
+            "#BB9FCD", 
+            "#A59AAD"
           ],
 
           borderWidth: 1,
@@ -186,10 +185,10 @@ window.onload = function () {
             font: {
               family:"'stolzl', sans-serif",
               size: 24,
-              weight: "bold",
+              weight: "500",
             },
             padding: {
-              bottom: 20 // Adjust the value as needed
+              bottom: 20 
           },
             color: "#333",
           },
@@ -281,7 +280,7 @@ window.onload = function () {
       }
     });
 
-    console.log("Total emissions per year:", yearTotals); // Log the total emissions per year
+    console.log("Total emissions per year:", yearTotals); 
     return yearTotals;
   }
 
@@ -305,7 +304,7 @@ window.onload = function () {
         datasets: [
           {
             data: totalEmissionsData,
-            backgroundColor: "#ADD8E6", //Light Blue
+            backgroundColor: "#ADD8E6", 
             borderColor: "#C5CBE1",
             borderWidth: 1,
           },
@@ -325,10 +324,10 @@ window.onload = function () {
             font: {
               family:"'stolzl', sans-serif",
               size: 24,
-              weight: "bold",
+              weight: "500",
             },
             padding: {
-              bottom: 20 // Adjust the value as needed
+              bottom: 20 
           },
             color: "#333",
           },
@@ -512,17 +511,17 @@ window.onload = function () {
 
     const backgroundColor = [
       
-      "#A3C4F3", // Pastel Blue
-      "#CBC3E3", // Lavender Blue
-      "#B2DFFB", // Baby Blue
-      "#DCD0FF", // Pale Lavender
-      "#CCCCFF", // Periwinkle
-      "#ADD8E6", // Light Blue
-      "#E0B0FF", // Mauve
-      "#87CEEB", // Sky Blue
-      "#B0C4DE", // Light Steel Blue
-      "#D8BFD8", // Thistle
-      "#C5CBE1", // Light Periwinkle
+      "#A3C4F3", 
+      "#CBC3E3", 
+      "#B2DFFB",
+      "#DCD0FF", 
+      "#CCCCFF", 
+      "#ADD8E6",
+      "#E0B0FF", 
+      "#87CEEB", 
+      "#B0C4DE", 
+      "#D8BFD8", 
+      "#C5CBE1", 
       
     ];
 
@@ -566,11 +565,10 @@ window.onload = function () {
             font: {
               family:"'stolzl', sans-serif",
               size: 24,
-
-              weight: "bold",
+              weight: "500",
             },
             padding: {
-              bottom: 20 // Adjust the value as needed
+              bottom: 20,
           },
             color: "#333",
           },
@@ -587,7 +585,7 @@ window.onload = function () {
             titleFont: {
               family:"'stolzl', sans-serif",
               size: 18,
-              weight: "bold",
+              weight: "500",
             },
           },
         },
@@ -706,7 +704,7 @@ function openModal(canvasId) {
     if (originalChart) {
       modal.style.display = "block";
       modalCanvas.style.display = "block";
-      modalTextContent.style.display = "none"; // Hide text content
+      modalTextContent.style.display = "none";
       modalTextContent.classList.remove("active");
 
       modalCanvas.width = originalCanvas.width;
@@ -735,10 +733,10 @@ function openModalWithContent(contentClass) {
     console.log("Combined content:", combinedContent);
 
     modal.style.display = "block";
-    modalCanvas.style.display = "none"; // Hide the canvas
-    modalTextContent.style.display = "flex"; // Show text content
+    modalCanvas.style.display = "none"; 
+    modalTextContent.style.display = "flex"; 
     modalTextContent.classList.add("active");
-    modalTextContent.innerHTML = combinedContent; // Set the combined content
+    modalTextContent.innerHTML = combinedContent; 
   }
 }
 
@@ -762,8 +760,8 @@ document.querySelectorAll('.learn-more-btn').forEach(btn => {
 
 span.onclick = function() {
   modal.style.display = "none";
-  modalCanvas.style.display = "none"; // Ensure canvas is hidden
-  modalTextContent.style.display = "none"; // Ensure text content is hidden
+  modalCanvas.style.display = "none"; 
+  modalTextContent.style.display = "none";
   modalTextContent.classList.remove("active");
   if (modalChart) {
     modalChart.destroy();
@@ -774,8 +772,8 @@ span.onclick = function() {
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
-    modalCanvas.style.display = "none"; // Ensure canvas is hidden
-    modalTextContent.style.display = "none"; // Ensure text content is hidden
+    modalCanvas.style.display = "none"; 
+    modalTextContent.style.display = "none"; 
     modalTextContent.classList.remove("active");
     if (modalChart) {
       modalChart.destroy();
@@ -785,75 +783,4 @@ window.onclick = function(event) {
 }
 
 
-// var modal = document.getElementById("canvasModal");
-// var span = document.getElementsByClassName("close")[0];
-// var modalCanvas = document.getElementById("modalCanvas");
-// var modalChart;
-
-// function openModal(canvasId) {
-//   var originalCanvas = document.getElementById(canvasId);
-
-//   if (originalCanvas) {
-//     var originalCtx = originalCanvas.getContext('2d');
-//     var originalChart = Chart.getChart(originalCtx);
-
-//     if (originalChart) {
-//       modal.style.display = "block";
-//       modalCanvas.width = originalCanvas.width;
-//       modalCanvas.height = originalCanvas.height;
-
-//       if (modalChart) {
-//         modalChart.destroy();
-//       }
-
-//       modalChart = new Chart(modalCanvas, {
-//         type: originalChart.config.type,
-//         data: originalChart.config.data,
-//         options: originalChart.config.options
-//       });
-//     }
-//   }
-// }
-
-// function openModalWithContent(contentClass) {
-//   console.log("Content class:", contentClass); // Log the content class to ensure it's correct
-//   modal.style.display = "block";
-//   var contents = document.getElementsByClassName(contentClass);
-//   console.log("Contents:", contents); // Log the contents to see if any paragraphs are found
-//   if (contents.length > 0) {
-//     // Assuming you want to concatenate the content of all paragraphs with the specified class
-//     var combinedContent = Array.from(contents).map(p => p.innerHTML).join('');
-//     console.log("Combined content:", combinedContent); // Log the combined content to see what's being displayed
-//     modalCanvas.innerHTML = combinedContent;
-//   }
-// }
-
-// document.querySelectorAll('.grid-item').forEach(item => {
-//   var target = item.getAttribute('data-target');
-//   if (target) {
-//     item.addEventListener('click', function() {
-//       openModal(target);
-//     });
-//   }
-// });
-
-// document.querySelectorAll('.learn-more-btn').forEach(btn => {
-//   var targetId = btn.getAttribute('data-additional-text');
-//   if (targetId) {
-//     btn.addEventListener('click', function() {
-//       openModalWithContent(targetId);
-//     });
-//   }
-// });
-
-// span.onclick = function() {
-//   modal.style.display = "none";
-// }
-
-// window.onclick = function(event) {
-//   if (event.target == modal) {
-//     modal.style.display = "none";
-//   }
-// }
-//TEXTMODAL
 

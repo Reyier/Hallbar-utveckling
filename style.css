@@ -40,7 +40,7 @@ body {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   transition: transform 0.2s, box-shadow 0.2s;
-  padding: 2rem 1rem 1rem 1rem;
+  padding: 2rem 1rem ;
   justify-content: center;
   align-items: center;
 }
@@ -58,13 +58,13 @@ body {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
+  grid-column-gap: 0.6rem;
+  grid-row-gap: 0.6rem;
   padding-top: 5%;
 }
 
 #train {
-  padding-top: 3rem;
+  padding-top: 1rem;
   width: 50%;
   height: auto;
   flex-direction: column;
@@ -72,18 +72,17 @@ body {
 
 #car {
   padding-bottom: 1rem;
-  width: 60%;
+  width: 90%;
   height: auto;
   flex-direction: column;
 }
 
 #plane {
   padding-top: 1rem;
-
   width: 40%;
   height: auto;
   flex-direction: column;
-  margin-left: 1rem;
+  margin-left: 0.2rem;
 }
 
 #ship {
@@ -101,30 +100,48 @@ body {
   justify-content: space-between;
 }
 
+
+
 h1 {
-  font-size: 1.5rem;
+  font-size: 3rem;
   color: #333;
-  text-align: left;
+  text-align:left;
   font-family: "stolzl", sans-serif;
-  font-weight: 700;
+  font-weight: 600;
+  font-style: normal;
+}
+
+h2 {
+  padding-top: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #333;
+  font-family: "stolzl", sans-serif;
+  font-weight: 500;
   font-style: normal;
   text-align: center;
 }
 
-h2 {
-  font-size: 1.5rem;
+h3 {
+  padding-top: 0.2rem;
+  padding-bottom:0;
+  margin-bottom: 0;
+  font-size: 2.5rem;
   text-align: center;
   color: #333;
   font-family: "stolzl", sans-serif;
-  font-weight: 700;
+  font-weight: 500;
   font-style: normal;
   text-align: center;
 }
+
+
 p {
   font-size: 1rem;
-  color: #666;
+  padding-top:0rem;
+  color: #6e6e6e;
   font-family: "stolzl", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
 }
 
@@ -137,13 +154,7 @@ p {
   align-items: left;
 }
 
-.stat {
-  padding-top: 1rem;
-  font-size: 2rem;
-  font-family: "stolzl", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-}
+
 
 .div1 {
   grid-area: 3 / 4 / 4 / 6;
@@ -169,18 +180,18 @@ p {
   color: #fff;
   border: none;
   border-radius: 5px;
-  padding: 10px 20px;
+  padding: 1rem 1.5rem;
   font-family: "stolzl", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 16px;
+  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  margin-top: 20px;
+  margin-top: 1rem;
   justify-content: center;
   align-items: center;
   text-align: center;
-  display: flex; /* Add display flex */
+  
 }
 
 .learn-more-btn:hover {
@@ -188,9 +199,7 @@ p {
   transform: scale(1.05);
 }
 
-.learn-more-btn:focus {
-  outline: none;
-}
+
 
 .contentWrapper {
   position: relative;
@@ -212,8 +221,8 @@ p {
 }
 
 .canvasStyle:hover {
-  transform: translateY(-2px); /* Lift the canvas on hover */
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Enhance box shadow on hover */
+  transform: translateY(-2px); 
+  box-shadow: 0px 5px 15px #add8e6;
 }
 
 .zoom-icon {
@@ -224,15 +233,15 @@ p {
   font-size: 35px;
   font-weight: bold;
   cursor: pointer;
-  display: none; /* Initially hide the icon */
+  display: none; 
 }
 
-/* Show the icon when hovering over the grid item */
+
 .grid-item:hover .zoom-icon {
   display: block;
 }
 
-/* Modal styles */
+
 .modal {
   display: none;
   position: fixed;
@@ -272,10 +281,10 @@ p {
 }
 
 .modal-content .modal-body {
-  height: 90%; /* Apply the same height as the canvas */
+  height: 90%; 
   width: auto;
   padding: 2rem;
-  margin: auto; /* Center the content horizontally */
+  margin: auto; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -283,7 +292,7 @@ p {
 }
 
 .modal canvas {
-  height: 100%; /* Use full height within the modal body */
+  height: 100%;
   width: auto;
 }
 
@@ -294,7 +303,7 @@ p {
 .modal .text-content {
   display: none;
   font-family: "Raleway", sans-serif;
-  color: #333;
+  color: black;
   line-height: 1.6;
   text-align: left;
 }
@@ -308,7 +317,7 @@ p {
   width: 100%;
 }
 
-/* Style for each paragraph */
+
 .modal .text-content p {
   padding: 1.5rem;
   border-radius: 15px;
@@ -316,7 +325,7 @@ p {
   transition: transform 0.3s ease-in-out;
 }
 
-/* Hover effect for paragraphs */
+
 .modal .text-content p:hover {
   transform: translateY(-5px);
 }
