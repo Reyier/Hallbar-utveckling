@@ -65,14 +65,15 @@ body {
 
 #train {
   padding-top: 1rem;
-  width: 50%;
+  width: 70%;
   height: auto;
   flex-direction: column;
 }
 
 #car {
+  padding-top: 1rem;
   padding-bottom: 1rem;
-  width: 90%;
+  width: 80%;
   height: auto;
   flex-direction: column;
 }
@@ -101,11 +102,10 @@ body {
 }
 
 
-
 h1 {
   font-size: 3rem;
   color: #333;
-  text-align:left;
+  text-align:center;
   font-family: "stolzl", sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -154,7 +154,10 @@ p {
   align-items: left;
 }
 
-
+.div2,
+.div6 {
+  cursor: pointer;
+}
 
 .div1 {
   grid-area: 3 / 4 / 4 / 6;
@@ -176,8 +179,8 @@ p {
 }
 
 .learn-more-btn {
-  background-color: #add8e6;
-  color: #fff;
+  background-color: #8dc9e0;
+  color: #ffffff;
   border: none;
   border-radius: 5px;
   padding: 1rem 1.5rem;
@@ -195,7 +198,7 @@ p {
 }
 
 .learn-more-btn:hover {
-  background-color: #87ceeb;
+  background-color: #1e90ff;
   transform: scale(1.05);
 }
 
@@ -218,6 +221,7 @@ p {
   background-color: #fff;
   transition: transform 0.2s, box-shadow 0.2s;
   padding: 2rem;
+  
 }
 
 .canvasStyle:hover {
@@ -234,6 +238,7 @@ p {
   font-weight: bold;
   cursor: pointer;
   display: none; 
+  opacity: 50%;
 }
 
 
@@ -296,8 +301,9 @@ p {
   width: auto;
 }
 
-.additionalText1, .additionalText2{
+.additionalText1, .additionalText2 {
   display: none;
+  font-size: 1.5rem;
 }
 
 .modal .text-content {
@@ -305,30 +311,47 @@ p {
   font-family: "Raleway", sans-serif;
   color: black;
   line-height: 1.6;
-  text-align: left;
+  text-align: center;
 }
 
 .modal .text-content.active {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; /* Changed flex direction to column */
   align-items: center;
   justify-content: center;
   height: 100%;
-  width: 100%;
+  width: 60%;
 }
 
+.modal .text-content h3 {
+  margin-top: 1.5rem; /* Added margin to top of h3 */
+}
 
 .modal .text-content p {
   padding: 1.5rem;
   border-radius: 15px;
-  width: 50%;
-  transition: transform 0.3s ease-in-out;
+  width: 60%; /* Adjusted width for text */
+  margin-top: 1rem; /* Added margin between h3 and p */
+  text-align: left;
 }
 
-
-.modal .text-content p:hover {
-  transform: translateY(-5px);
+.modal .text-content img {
+  width: 50%; /* Adjusted width for image */
+  margin-top: 1rem; /* Added margin between p and img */
 }
+
+#train2 {
+  padding-top: 1.5rem;
+  width: 15%;
+  height: auto;
+}
+
+#car2 {
+  padding-top: 2rem;
+  width: 25%;
+  height: auto;
+}
+
 
 .close {
   position: absolute;

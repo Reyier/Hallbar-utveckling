@@ -180,7 +180,7 @@ window.onload = function () {
           },
           title: {
             display: true,
-            text: "Utsläpp mellan olika transporter 2022 (t)",
+            text: "Utsläpp mellan olika transporter i ton under 2022",
             align: "center",
             font: {
               family:"'stolzl', sans-serif",
@@ -207,6 +207,16 @@ window.onload = function () {
     });
   }
 
+
+
+
+
+
+
+
+
+
+  
   // CARDS
 
   function calculateTotalEmissionsPerYear(data) {
@@ -319,7 +329,7 @@ window.onload = function () {
           },
           title: {
             display: true,
-            text: "Totala utsläpp kväveoxid per år (t)",
+            text: "Totala utsläpp kväveoxid per år i ton",
 
             font: {
               family:"'stolzl', sans-serif",
@@ -560,7 +570,7 @@ window.onload = function () {
           title: {
             display: true,
 
-            text: "Utforska olika transportmedel och deras utsläpp under 2000-talet (t)",
+            text: "Utforska olika transportmedel och deras utsläpp under 2000-talet i ton",
 
             font: {
               family:"'stolzl', sans-serif",
@@ -693,8 +703,10 @@ var modalCanvas = document.getElementById("modalCanvas");
 var modalTextContent = document.getElementById("modalTextContent");
 var modalChart;
 
-function openModal(canvasId) {
+function openModal(canvasId, chartType) {
   console.log("Opening modal with canvas ID:", canvasId);
+  console.log("Chart type:", chartType); // Add this line to log the chartType
+
   var originalCanvas = document.getElementById(canvasId);
 
   if (originalCanvas) {
@@ -714,15 +726,52 @@ function openModal(canvasId) {
         modalChart.destroy();
       }
 
-      modalChart = new Chart(modalCanvas, {
-        type: originalChart.config.type,
-        data: originalChart.config.data,
-        options: originalChart.config.options
-      });
+      if (chartType === 'doughnut') {
+        var doughnutOptions = Object.assign({}, originalChart.config.options, {
+          plugins: {
+            legend: {
+              display: true,
+              position: 'top',
+              
+              labels: {
+                font: {
+                    size: 16 // Adjust the font size here
+                }
+            }
+            },
+            title: {
+              display: true,
+              text: "Utsläpp mellan olika transporter i ton under 2022",
+              align: "center",
+              font: {
+                family:"'stolzl', sans-serif",
+                size: 24,
+                weight: "500",
+              },
+              padding: {
+                bottom: 20 
+            },
+              color: "#333",
+            },
+          }
+        });
+
+        modalChart = new Chart(modalCanvas, {
+          type: originalChart.config.type,
+          data: originalChart.config.data,
+          options: doughnutOptions
+        });
+
+      } else {
+        modalChart = new Chart(modalCanvas, {
+          type: originalChart.config.type,
+          data: originalChart.config.data,
+          options: originalChart.config.options
+        });
+      }
     }
   }
 }
-
 function openModalWithContent(contentClass) {
   console.log("Opening modal with content class:", contentClass);
   var contents = document.getElementsByClassName(contentClass);
@@ -742,9 +791,10 @@ function openModalWithContent(contentClass) {
 
 document.querySelectorAll('.grid-item').forEach(item => {
   var target = item.getAttribute('data-target');
+  var chartType = item.getAttribute('data-chart-type'); // Add this line
   if (target) {
     item.addEventListener('click', function() {
-      openModal(target);
+      openModal(target, chartType); // Pass chartType as parameter
     });
   }
 });

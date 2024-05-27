@@ -11,6 +11,9 @@
   <body>
     <div class="hero">
 
+      
+
+
       <div id="canvasModal" class="modal">
         <div class="modal-content">
           <span class="close">&times;</span>
@@ -25,13 +28,13 @@
    <div class="grid-container">
   <div class="grid">
     <div class="grid-item div1">
-      <h2>Utforska utvecklingen av utsläpp hos olika transportmedel</h1>
+      <h2>Utforska utvecklingen av kväveoxid hos olika transportmedel</h2>
       
       <img src="/img/transport_ship_1.png" id="ship" class="illustrations">
       <button class="learn-more-btn" data-target="#combinedChartSection">Se mer</button>
     </div>
 
-    <div class="grid-item div2" data-target="doughnutChart">
+    <div class="grid-item div2" data-target="doughnutChart" data-chart-type="doughnut">
      
       <canvas id="doughnutChart" class="pieChart"></canvas>
       <span class="zoom-icon">&#128269;</span>
@@ -39,7 +42,7 @@
 
     <div class="grid-item div3 at-text" data-target="additionalText3">
       <div class="text">
-        <img src="/img/transport_car_1.png" id="car" class="illustrations">
+        <img src="/img/transport_train_1.png" id="train" class="illustrations">
         <h3>-63 %</h3>
         <p>Sedan 2000</p>
         <button class="learn-more-btn" data-additional-text="additionalText1">Läs mer</button>
@@ -49,16 +52,15 @@
     <div class="grid-item div4 at-text" >
       <div class="text">
         <p>Totala utsläppen kväveoxid under 2022: </p>
-        <h3 >43 897.6 (t)</h3>
-        
-        <img src="/img/transport_train_1.png" id="train" class="illustrations">
+        <h3 >43 897.6 ton</h3>
+        <img src="/img/transport_car_1.png" id="car" class="illustrations">
         <button class="learn-more-btn" data-additional-text="additionalText2">Läs mer</button>
       </div>
     </div>
 
     <div class="grid-item div5">
       <div class="text">
-        <h1>Transportsektorns Kväveoxidutsläpp i Sverige år 2000-2022</h1>
+        <h1>Transportsektorns kväveoxidutsläpp i Sverige år 2000-2022</h1>
         <img src="/img/transport_plane_1.png" id="plane" class="illustrations">
       </div>
     </div>
@@ -73,12 +75,16 @@
 
 
 <div class="additionalText1">
+  <h3>Minskningen av kväveoxidutsläpp sedan år 2000</h3>
   <p> Sedan år 2000 har Sveriges transportsektor genomgått betydande förändringar för att minska utsläppen av kväveoxider (NOx), vilket har resulterat i en imponerande minskning på 63%. Denna nedgång är ett resultat av ett mångfacetterat tillvägagångssätt som omfattar teknologiska framsteg, politiska åtgärder, förändrade transportvanor och ökad medvetenhet om miljöfrågor. </p>
   <p> Denna omfattande minskning av kväveoxidutsläppen i Sveriges transportsektor under de senaste årtiondena är en imponerande prestation som vittnar om en lyckad satsning mot en renare och mer hållbar framtid. Genom en kombination av teknologisk innovation, strategisk lagstiftning och en förändring i människors transportbeteenden har landet lyckats minska utsläppen av denna skadliga luftförorening avsevärt. Detta framgångsrika exempel visar på vikten av att ta itu med miljöutmaningar på ett brett och samordnat sätt, där både regeringen, näringslivet och allmänheten spelar en avgörande roll för att uppnå verkliga förbättringar för miljön och människors hälsa.</p>
+  <img src="/img/transport_train_1.png" id="train2" class="illustrations">
 </div>
 
 <div class="additionalText2">
+  <h3>Total mängd utsläpp kväveoxid under år 2022</h3>
   <p>Under år 2022 uppgick de totala utsläppen av kväveoxid (NOx) till 43 897,6 ton. Detta är en viktig indikator på miljöpåverkan och luftkvalitet under det aktuella året. Utsläppen kommer från olika transportslag, inklusive Inrikes flyg, Utrikes flyg, Järnväg, Privata fritidsbåtar, Kommersiella fartyg, Personbilar, A-traktorer, Bussar, Lätta lastbilar, Mopeder och motorcyklar, Tunga lastbilar, För att få en djupare förståelse av utvecklingen över tid och mellan olika transportslag, rekommenderas att utforska diagrammen.</p>
+  <img src="/img/transport_car_1.png" id="car2" class="illustrations">
 </div>
 
 
