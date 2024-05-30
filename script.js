@@ -1,4 +1,7 @@
 window.onload = function () {
+
+// API
+
   const urlUtslapp =
     "https://api.scb.se/OV0104/v1/doris/sv/ssd/START/MI/MI0108/MI0108InTranspN2";
 
@@ -85,6 +88,11 @@ window.onload = function () {
     ],
     response: { format: "json" },
   };
+
+
+
+
+  // DOUGNUT DIAGRAM
 
   function printDoughnutChart(utslappData) {
     const year = "2022";
@@ -217,9 +225,9 @@ window.onload = function () {
 
 
   
-  // CARDS
+  // TOTALA UTSLÄPP PER ÅR, STAPEL DIAGRAM
 
-  function calculateTotalEmissionsPerYear(data) {
+  function calculateTotalEmission(data) {
     const yearTotals = {};
     const validTransportModes = {
       "8.1.2": "Inrikes flyg",
@@ -294,7 +302,13 @@ window.onload = function () {
     return yearTotals;
   }
 
-  function displayTotalEmissionsBarChart(yearTotals) {
+
+
+
+
+
+
+  function displayTotalEmission(yearTotals) {
     const years = Object.keys(yearTotals);
     const totalEmissionsData = years.map((year) => {
       const totalEmission = Object.values(yearTotals[year]).reduce(
@@ -372,6 +386,12 @@ window.onload = function () {
       },
     });
   }
+
+
+
+
+
+
 
   // KOMBINERAT LINJEDIAGRAM
 
@@ -672,15 +692,19 @@ window.onload = function () {
       printDoughnutChart(dataUtslapp.data);
       printcombinedCharts(dataUtslapp.data);
 
-      const totalEmissionsPerYear = calculateTotalEmissionsPerYear(
+      const totalEmissionsPerYear = calculateTotalEmission(
         dataUtslapp.data
       );
-      displayTotalEmissionsBarChart(totalEmissionsPerYear);
+      displayTotalEmission(totalEmissionsPerYear);
     })
     .catch((error) => {
       console.error("Error fetching data:", error);
     });
 };
+
+
+
+
 
 // SCROLL
 
@@ -696,6 +720,12 @@ document.querySelectorAll('.learn-more-btn').forEach(button => {
 
 
 
+
+
+
+
+
+
 // MODAL
 var modal = document.getElementById("canvasModal");
 var span = document.getElementsByClassName("close")[0];
@@ -705,7 +735,7 @@ var modalChart;
 
 function openModal(canvasId, chartType) {
   console.log("Opening modal with canvas ID:", canvasId);
-  console.log("Chart type:", chartType); // Add this line to log the chartType
+  console.log("Chart type:", chartType); 
 
   var originalCanvas = document.getElementById(canvasId);
 
@@ -772,6 +802,13 @@ function openModal(canvasId, chartType) {
     }
   }
 }
+
+
+
+
+
+
+
 function openModalWithContent(contentClass) {
   console.log("Opening modal with content class:", contentClass);
   var contents = document.getElementsByClassName(contentClass);
@@ -791,10 +828,10 @@ function openModalWithContent(contentClass) {
 
 document.querySelectorAll('.grid-item').forEach(item => {
   var target = item.getAttribute('data-target');
-  var chartType = item.getAttribute('data-chart-type'); // Add this line
+  var chartType = item.getAttribute('data-chart-type'); 
   if (target) {
     item.addEventListener('click', function() {
-      openModal(target, chartType); // Pass chartType as parameter
+      openModal(target, chartType); 
     });
   }
 });

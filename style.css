@@ -1,17 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
 * {
-  font-family: "Raleway", sans-serif;
+  font-family: "stolzl", sans-serif;
   margin: 0;
   padding: 0;
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
-
-/*.ralewayuniquifier {
-  font-family: "Raleway", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: weight;
-  font-style: normal;
-}*/
 
 body {
   background: #f0f3ff;
@@ -28,21 +21,29 @@ body {
   margin: auto;
 }
 
+.grid {
+  display: grid;
+  width: 80%;
+  height: 80vh;
+  margin: auto;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 0.6rem;
+  padding-top: 5%;
+}
+
 .grid-item {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  font-family: "Raleway", sans-serif;
   font-weight: bold;
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   transition: transform 0.2s, box-shadow 0.2s;
-  padding: 2rem 1rem ;
-  justify-content: center;
-  align-items: center;
+  padding: 2rem 1rem;
 }
 
 .grid-item:hover {
@@ -50,47 +51,25 @@ body {
   box-shadow: 0px 5px 15px #add8e6;
 }
 
-.grid {
-  display: flex;
-  width: 80%;
-  height: 80vh;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  grid-column-gap: 0.6rem;
-  grid-row-gap: 0.6rem;
-  padding-top: 5%;
-}
-
-#train {
+#train, #car, #plane, #ship {
   padding-top: 1rem;
-  width: 70%;
+  width: auto;
   height: auto;
   flex-direction: column;
 }
 
 #car {
-  padding-top: 1rem;
   padding-bottom: 1rem;
   width: 80%;
-  height: auto;
-  flex-direction: column;
 }
 
 #plane {
-  padding-top: 1rem;
   width: 40%;
-  height: auto;
-  flex-direction: column;
   margin-left: 0.2rem;
 }
 
 #ship {
-  padding-top: 1rem;
   width: 30%;
-  height: auto;
-  flex-direction: column;
 }
 
 .text {
@@ -101,82 +80,51 @@ body {
   justify-content: space-between;
 }
 
+h1, h2, h3, p {
+  color: #333;
+  font-family: "stolzl", sans-serif;
+  font-style: normal;
+  text-align: center;
+}
 
 h1 {
   font-size: 3rem;
-  color: #333;
-  text-align:center;
-  font-family: "stolzl", sans-serif;
   font-weight: 600;
-  font-style: normal;
 }
 
 h2 {
-  padding-top: 1rem;
   font-size: 1.5rem;
-  text-align: center;
-  color: #333;
-  font-family: "stolzl", sans-serif;
   font-weight: 500;
-  font-style: normal;
-  text-align: center;
+  padding-top: 1rem;
 }
 
 h3 {
-  padding-top: 0.2rem;
-  padding-bottom:0;
-  margin-bottom: 0;
   font-size: 2.5rem;
-  text-align: center;
-  color: #333;
-  font-family: "stolzl", sans-serif;
   font-weight: 500;
-  font-style: normal;
-  text-align: center;
+  padding-top: 0.2rem;
 }
-
 
 p {
   font-size: 1rem;
-  padding-top:0rem;
   color: #6e6e6e;
-  font-family: "stolzl", sans-serif;
   font-weight: 500;
-  font-style: normal;
 }
 
-.div1,
-.div3,
-.div5 {
+.div1, .div3, .div5, .div2, .div6 {
   display: flex;
   flex-direction: column;
- 
-  align-items: left;
 }
 
-.div2,
-.div6 {
+.div2, .div6 {
   cursor: pointer;
 }
 
-.div1 {
-  grid-area: 3 / 4 / 4 / 6;
-}
-.div2 {
-  grid-area: 1 / 4 / 3 / 6;
-}
-.div3 {
-  grid-area: 1 / 3 / 2 / 4;
-}
-.div4 {
-  grid-area: 2 / 1 / 4 / 2;
-}
-.div5 {
-  grid-area: 1 / 1 / 2 / 3;
-}
-.div6 {
-  grid-area: 2 / 2 / 4 / 4;
-}
+.div1 { grid-area: 3 / 4 / 4 / 6; }
+.div2 { grid-area: 1 / 4 / 3 / 6; }
+.div3 { grid-area: 1 / 3 / 2 / 4; }
+.div4 { grid-area: 2 / 1 / 4 / 2; }
+.div5 { grid-area: 1 / 1 / 2 / 3; }
+.div6 { grid-area: 2 / 2 / 4 / 4; }
 
 .learn-more-btn {
   background-color: #8dc9e0;
@@ -184,25 +132,17 @@ p {
   border: none;
   border-radius: 5px;
   padding: 1rem 1.5rem;
-  font-family: "stolzl", sans-serif;
-  font-weight: 400;
-  font-style: normal;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
   margin-top: 1rem;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  
 }
 
 .learn-more-btn:hover {
   background-color: #1e90ff;
   transform: scale(1.05);
 }
-
-
 
 .contentWrapper {
   position: relative;
@@ -214,18 +154,16 @@ p {
 
 .canvasStyle {
   position: relative;
-  font-family: "Raleway", sans-serif;
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   background-color: #fff;
   transition: transform 0.2s, box-shadow 0.2s;
   padding: 2rem;
-  
 }
 
 .canvasStyle:hover {
-  transform: translateY(-2px); 
+  transform: translateY(-2px);
   box-shadow: 0px 5px 15px #add8e6;
 }
 
@@ -237,15 +175,13 @@ p {
   font-size: 35px;
   font-weight: bold;
   cursor: pointer;
-  display: none; 
+  display: none;
   opacity: 50%;
 }
-
 
 .grid-item:hover .zoom-icon {
   display: block;
 }
-
 
 .modal {
   display: none;
@@ -257,17 +193,14 @@ p {
   height: 81vh;
   transform: translate(-50%, -50%);
   background-color: #fff;
-
   align-items: center;
   justify-content: center;
-  font-family: "Raleway", sans-serif;
   font-weight: bold;
   border: 1px solid #add8e6;
   border-radius: 10px;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Modal content styles */
 .modal-content {
   position: relative;
   margin: auto;
@@ -286,10 +219,10 @@ p {
 }
 
 .modal-content .modal-body {
-  height: 90%; 
+  height: 90%;
   width: auto;
   padding: 2rem;
-  margin: auto; 
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -308,7 +241,6 @@ p {
 
 .modal .text-content {
   display: none;
-  font-family: "Raleway", sans-serif;
   color: black;
   line-height: 1.6;
   text-align: center;
@@ -316,7 +248,7 @@ p {
 
 .modal .text-content.active {
   display: flex;
-  flex-direction: column; /* Changed flex direction to column */
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
@@ -324,34 +256,36 @@ p {
 }
 
 .modal .text-content h3 {
-  margin-top: 1.5rem; /* Added margin to top of h3 */
+  margin-top: 1.5rem;
 }
 
 .modal .text-content p {
   padding: 1.5rem;
   border-radius: 15px;
-  width: 60%; /* Adjusted width for text */
-  margin-top: 1rem; /* Added margin between h3 and p */
+  width: 60%;
+  margin-top: 1rem;
   text-align: left;
 }
 
 .modal .text-content img {
-  width: 50%; /* Adjusted width for image */
-  margin-top: 1rem; /* Added margin between p and img */
+  width: 50%;
+  margin-top: 1rem;
+}
+
+#train2, #car2 {
+  padding-top: 1.5rem;
+  width: auto;
+  height: auto;
 }
 
 #train2 {
-  padding-top: 1.5rem;
   width: 15%;
-  height: auto;
 }
 
 #car2 {
-  padding-top: 2rem;
   width: 25%;
-  height: auto;
+  padding-top: 2rem;
 }
-
 
 .close {
   position: absolute;
